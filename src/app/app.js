@@ -1,3 +1,4 @@
+
 /*module.exports={
 
 
@@ -8,8 +9,108 @@
 }*/
 export const prueba = {
 
+    //35. Search Insert Position--Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order
+    searchInsertPo(nums,target) {
+       
+        let left=0;
+        let right=nums.length-1;
 
+        while(left<=right){
+            const mid=Math.floor((left+right)/2);
+            if(nums[mid] == target){
+                return mid;
+            }else if(nums[mid]<target){
+               left=mid+1;
+            }else {
+               right=mid-1;
+            }
+        }
+        return right+1;
+        
 
+    },
+    majorityElement(nums) {
+        let m = new Map();
+        for (let i = 0; i < nums.length; i++) {
+
+            if (m.has(nums[i])) {
+                m.set(parseInt(nums[i]), m.get(parseInt(nums[i])) + 1)
+            } else {
+                m.set(parseInt(nums[i]), 1)
+            }
+
+        }
+        let maxItem = 0;
+        let maxCount = 0;
+        m.forEach((count, element) => {
+            if (count > maxCount) {
+                maxCount = count;
+                maxItem = element;
+            }
+        })
+        return maxItem;
+
+    },
+    removeDuplicates2(nums) {
+        let num = 0;
+        let map = new Map();
+        for (let i = 0; i < nums.length; i++) {
+            map.set(nums[i], 0);
+        }
+
+        for (let i = 0; i < nums.length; i++) {
+
+            if (map.get(parseInt(nums[i])) <= 1) {
+                map.set(nums[i], map.get(parseInt(nums[i])) + 1)
+                num++;
+
+            }
+
+        }
+        console.log(map)
+        let agrega = 0;
+        for (let [key, value] of map) {
+            for (let j = 0; j < map.get(key); j++) {
+
+                nums[agrega] = parseInt(key)
+                agrega++;
+
+            }
+        }
+        console.log(nums)
+        return num;
+    },
+    mergetwoorderArrays(nums1, m, nums2, n) {
+        let arrAux = nums1.slice(0, m);
+        nums2 = nums2.slice(0, n);
+        nums1.length = m + n;
+        console.log(nums1.length)
+        console.log(arrAux)
+        console.log(nums2)
+        if (m == 0) {
+            for (let i = 0; i < nums1.length; i++) {
+                nums1[i] = nums2[i]
+            }
+        } else if (n != 0) {
+            let apun0 = 0;
+            let apun2 = 0;
+            for (let i = 0; i < nums1.length; i++) {
+                if (arrAux[apun0] <= nums2[apun2] || nums2[apun2] == undefined) {
+                    nums1[i] = arrAux[apun0];
+                    console.log("apun0", apun0)
+                    apun0++
+
+                } else {
+                    nums1[i] = nums2[apun2];
+                    console.log("apun2", apun2)
+                    apun2++
+
+                }
+
+            }
+        }
+        console.log(nums1)
+    },
     ordenar(arr) {
         //retorna carpeta que tenga mas archivos sin repetir
         let arrtmpFolders = {};
@@ -144,9 +245,9 @@ export const prueba = {
         return matrizFinal
     }, deposit(n1, n2, n3) {
         //You have deposited a specific amount of money into your bank account. Each year your balance increases at the same growth rate. With the assumption that you don't make any additional deposits, find out how long it would take for your balance to pass a specific threshold.
-//Example
-//For deposit = 100, rate = 20, and threshold = 170, the output should be
-//solution(deposit, rate, threshold) = 3.
+        //Example
+        //For deposit = 100, rate = 20, and threshold = 170, the output should be
+        //solution(deposit, rate, threshold) = 3.
 
         console.log("depo")
         let cont = 0;
@@ -290,7 +391,7 @@ export const prueba = {
         }
 
         while (list1 && list2) {
-            
+
             if (list1.val <= list2.val) {
                 current.next = list1
                 list1 = list1.next;
@@ -298,11 +399,11 @@ export const prueba = {
                 current.next = list2
                 list2 = list2.next;
             }
-                current=current.next ;
-                console.log("nuelist")
-                console.log(nuelist)
-                console.log("current")
-                console.log(current)
+            current = current.next;
+            console.log("nuelist")
+            console.log(nuelist)
+            console.log("current")
+            console.log(current)
 
         }
         let notNull = list1 || list2;
@@ -313,134 +414,135 @@ export const prueba = {
         return nuelist.next;
 
     }, removeDuplicates(nums) {//remuebe duplicados con un apuntador
-            let j=0;//
-            for(let i=1;i<nums.length;i++){
-                if(nums[i]!=nums[j]){
-                   nums[j+1]=nums[i];
-                   j++;
-                   console.log(nums)
-                }
+        let j = 0;//
+        for (let i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[j]) {
+                nums[j + 1] = nums[i];
+                j++;
+                console.log(nums)
             }
-          
-            return j+1;
-        }, cartas(k){
-            console.log("cartas", k)
-let cartas={};
-k.forEach(el=>(cartas[el]=cartas[el]+1 || 1))
-console.log(cartas)
-Object.keys(cartas).forEach(key=>{
-    if(cartas[key]>1) delete cartas[key]
+        }
 
-})
-console.log(cartas)
-let sum=0;
-Object.keys(cartas).forEach(key=>{
-    sum+=parseInt(key)
+        return j + 1;
+    }, cartas(k) {
+        console.log("cartas", k)
+        let cartas = {};
+        k.forEach(el => (cartas[el] = cartas[el] + 1 || 1))
+        console.log(cartas)
+        Object.keys(cartas).forEach(key => {
+            if (cartas[key] > 1) delete cartas[key]
 
-})
-return sum
-        },
-        reverseLinklist(num) {//lista reversa
+        })
+        console.log(cartas)
+        let sum = 0;
+        Object.keys(cartas).forEach(key => {
+            sum += parseInt(key)
 
-            class LinkedList {
-                constructor(value) {
-                    this.head = {
-                        value: value,
-                        next: null
-                    };
-                    this.tail = this.head;
-                    this.length = 1;
-                }
-                append(value) {
-                  const newNode = {
+        })
+        return sum
+    },
+
+    reverseLinklist(num) {//lista reversa
+
+        class LinkedList {
+            constructor(value) {
+                this.head = {
                     value: value,
                     next: null
-                  }
-                  //console.log(newNode)
-                  this.tail.next = newNode;
-                  this.tail = newNode;
-                  this.length++;
-                  return this;
-                }
-                prepend(value) {
-                  const newNode = {
+                };
+                this.tail = this.head;
+                this.length = 1;
+            }
+            append(value) {
+                const newNode = {
                     value: value,
                     next: null
-                  }
-                  newNode.next = this.head;
-                  this.head = newNode;
-                  this.length++;
-                  return this;
                 }
-                printList() {
-                  const array = [];
-                  let currentNode = this.head;
-                  while(currentNode !== null){
-                      array.push(currentNode.value)
-                      currentNode = currentNode.next
-                  }
-                  return array;
+                //console.log(newNode)
+                this.tail.next = newNode;
+                this.tail = newNode;
+                this.length++;
+                return this;
+            }
+            prepend(value) {
+                const newNode = {
+                    value: value,
+                    next: null
                 }
-                insert(index, value){
-                  //Check for proper parameters;
-                  if(index >= this.length) {
+                newNode.next = this.head;
+                this.head = newNode;
+                this.length++;
+                return this;
+            }
+            printList() {
+                const array = [];
+                let currentNode = this.head;
+                while (currentNode !== null) {
+                    array.push(currentNode.value)
+                    currentNode = currentNode.next
+                }
+                return array;
+            }
+            insert(index, value) {
+                //Check for proper parameters;
+                if (index >= this.length) {
                     console.log('yes')
                     return this.append(value);
-                  }
-                  
-                  const newNode = {
+                }
+
+                const newNode = {
                     value: value,
                     next: null
-                  }
-                  const leader = this.traverseToIndex(index-1);
-                  const holdingPointer = leader.next;
-                  leader.next = newNode;
-                  newNode.next = holdingPointer;
-                  this.length++;
-                  return this.printList();
                 }
-                traverseToIndex(index) {
-                  //Check parameters
-                  let counter = 0;
-                  let currentNode = this.head;
-                  while(counter !== index){
+                const leader = this.traverseToIndex(index - 1);
+                const holdingPointer = leader.next;
+                leader.next = newNode;
+                newNode.next = holdingPointer;
+                this.length++;
+                return this.printList();
+            }
+            traverseToIndex(index) {
+                //Check parameters
+                let counter = 0;
+                let currentNode = this.head;
+                while (counter !== index) {
                     currentNode = currentNode.next;
                     counter++;
-                  }
-                  return currentNode;
                 }
-                remove(index) {
-                  // Check Parameters      
-                  const leader = this.traverseToIndex(index-1);
-                  const unwantedNode = leader.next;
-                  leader.next = unwantedNode.next;
-                  this.length--;
-                  return this.printList();
-                }
-                reverse() {
-                  if (!this.head.next) {
+                return currentNode;
+            }
+            remove(index) {
+                // Check Parameters      
+                const leader = this.traverseToIndex(index - 1);
+                const unwantedNode = leader.next;
+                leader.next = unwantedNode.next;
+                this.length--;
+                return this.printList();
+            }
+            reverse() {
+                if (!this.head.next) {
                     return this.head;
-                  }
-                  let first = this.head;
-                  this.tail = this.head;
-                  let second = first.next;
-              
-                  while(second) {
-                    console.log("first",first)
+                }
+                let first = this.head;
+                this.tail = this.head;
+                let second = first.next;
+
+                while (second) {
+                    console.log("first", first)
                     const temp = second.next;
-                    console.log("temp",temp)
+                    console.log("temp", temp)
                     second.next = first;
                     first = second;
                     second = temp;
-                    console.log("second",first)
-                  }
-              
-                  this.head.next = null;
-                  this.head = first;
-                  return this.printList();
+                    console.log("second", first)
                 }
+
+                this.head.next = null;
+                this.head = first;
+                return this.printList();
             }
-            return new LinkedList(num)
         }
+        return new LinkedList(num)
+    }
 }
 

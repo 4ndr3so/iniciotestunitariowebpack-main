@@ -75,9 +75,12 @@ let list2=new ListNode(1, new ListNode(3, new ListNode(4)))
 //console.log(console.log(prueba.removeDuplicates([0,0,1,1,1,2,2,3,3,4])))
 const k= "2 3 1 3".split(" ").map(n => parseInt(n))
 
+const arra=[1,3,5,7,9,13,15,27]
+const target=10;
 
-
-console.log( prueba.cartas(k));
+console.log(prueba.searchInsertPo(arra,target));
+//console.log( prueba.mergetwoorderArrays([-1,0,0,3,3,3,0,0,0],6,[1,2,2],3));
+//console.log( prueba.cartas(k));
 
 
 //console.log(prueba.solution("papa(par)no"))
