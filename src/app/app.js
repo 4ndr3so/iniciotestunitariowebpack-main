@@ -9,6 +9,25 @@
 }*/
 export const prueba = {
 
+    //58. Length of Last Word Easy Topics Companies Given a string s consisting of words and spaces, return the length of the last word in the string.
+    lengthOfLastWord(s) {
+       
+        let size=s.length;
+        let lastworld="";
+        let palabra=false;
+        for(let i=size-1;i>=0;i--){
+            console.log(s[i])
+            if(s[i]!=' '){
+                
+                palabra=true;
+                lastworld=lastworld+s[i];
+            }else if(palabra==true){
+                return lastworld.length;
+            }
+        }
+        return lastworld.length;
+
+    },
     //35. Search Insert Position--Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order
     searchInsertPo(nums,target) {
        
