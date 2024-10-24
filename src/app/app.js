@@ -8,11 +8,52 @@
     }
 }*/
 export const prueba = {
+    insertionSort(arr) { //n^2
+        for(let i=1;i<arr.length;i++){
+            let value=arr[i];
+            let hole=i;
+            while(hole>0 && arr[hole-1]>value){
+                arr[hole]=arr[hole-1]
+                hole=hole-1;
+            }
+            arr[hole]=value;
+        }
+        return arr;
+    },
+    bubleSort(arr) {    //n^2
+        for(let i=0;i<arr.length;i++){
+            for(let j=0;j<arr.length-i;j++){
+                if(arr[j]>arr[j+1]){//change the order
+                    let temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        }
+        return arr;
+    },
+    selectionSort(arr) {
+        //O(n^2)
+        for(let i=0;i<arr.length;i++){
+            let min=i;
+            for(let j=i+1;j<arr.length;j++){
+                if(arr[j]<arr[min]){//change the order
+                    min=j;
+                }
+            }
+            if(i!=min){
+                let temp=arr[i];
+                arr[i]=arr[min];
+                arr[min]=temp;
+            }
+        }
+        return arr;
+    },
     //66. Plus One
     plusOne(digits) {
         let size=digits.length;
         for(let i=size-1;i>=0;i--){
-            if(digits[i]<9){
+            if(digits[i]<9){   
                 digits[i]++;
                 return digits;
             }else{
