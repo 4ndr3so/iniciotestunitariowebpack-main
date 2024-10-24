@@ -8,7 +8,20 @@
     }
 }*/
 export const prueba = {
-
+    //66. Plus One
+    plusOne(digits) {
+        let size=digits.length;
+        for(let i=size-1;i>=0;i--){
+            if(digits[i]<9){
+                digits[i]++;
+                return digits;
+            }else{
+                digits[i]=0;
+            }
+            digits.unshift(1);
+            return digits;
+        }
+    },
     //58. Length of Last Word Easy Topics Companies Given a string s consisting of words and spaces, return the length of the last word in the string.
     lengthOfLastWord(s) {
        
