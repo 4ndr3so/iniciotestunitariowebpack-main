@@ -79,8 +79,10 @@ const arra=[1,3,5,7,9,13,15,27]
 const target=10;
 const text="a"
 const num=[6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3]
+const a="11"
+const b="1"
 
-console.log(prueba.mergeSort(num));
+console.log(prueba.quickSorting(num,0,19));
 //console.log( prueba.mergetwoorderArrays([-1,0,0,3,3,3,0,0,0],6,[1,2,2],3));
 //console.log( prueba.cartas(k));
 

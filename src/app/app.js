@@ -8,6 +8,61 @@
     }
 }*/
 export const prueba = {
+    quickSorting(arr,start,end) {
+        //log(n)
+        if (arr.length <= 1) {
+            return arr;
+        }
+        if(start<end){
+            let index= this.partition(arr,start,end);
+            this.quickSorting(arr,start,index-1);
+            this.quickSorting(arr,index+1,end);
+        }
+       
+        return arr;
+
+    },partition(arr,start,end){
+        console.log("partition")
+        let pivot=arr[end];
+        let index=start;
+        for(let i=start;i<end;i++){
+            if(arr[i]<pivot){
+                let temp=arr[i];
+                arr[i]=arr[index];
+                arr[index]=temp;
+                index++;
+            }
+        }
+        let temp=arr[end];
+        arr[end]=arr[index];
+        arr[index]=temp;
+        return index;
+    },
+    sumTwobinary(a, b) {
+        //Given two binary strings a and b, return their sum as a binary string.
+        //let a1 = parseInt(a, 2)
+        //let b1 = parseInt(b, 2)
+       // return (a1 + b1).toString(2)
+
+       let i = a.length - 1;
+    let j = b.length - 1;
+    let carry = 0;
+    let result = '';
+
+    while (i >= 0 || j >= 0 || carry > 0) {
+        const bitA = i >= 0 ? parseInt(a[i], 2) : 0;
+        const bitB = j >= 0 ? parseInt(b[j], 2) : 0;
+        const sum = bitA + bitB + carry;
+
+        result = (sum % 2) + result;  // Append the current bit to result
+        carry = Math.floor(sum / 2);  // Calculate the carry
+
+        i--;
+        j--;
+    }
+
+    return result;
+    },
     mergeSort(arr) {
         //O(n log n)
         if (arr.length === 1) {
