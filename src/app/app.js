@@ -8,6 +8,29 @@
     }
 }*/
 export const prueba = {
+    mySqrt(x)  {
+        if (x < 2) return x; // For 0 and 1, the square root is the number itself
+    
+        let left = 1;
+        let right = x;
+        let result = 0;
+    
+        while (left <= right) {
+            const mid = Math.floor((left + right) / 2);
+            const square = mid * mid;
+    
+            if (square === x) {
+                return mid; // Exact square root found
+            } else if (square < x) {
+                result = mid; // Update result to the current mid
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+    
+        return result; // Return the floor of the square root
+    },
     quickSorting(arr,start,end) {
         //log(n)
         if (arr.length <= 1) {
