@@ -8,6 +8,21 @@
     }
 }*/
 export const prueba = {
+    climbStairs(n) {
+    if (n <= 2) return n;  // Base cases
+
+   let oneStepBefore = 2;
+   let twoStepsBefore = 1;
+   let totalWays = 0;
+
+   for (let i = 3; i <= n; i++) {
+       totalWays = oneStepBefore + twoStepsBefore;
+       twoStepsBefore = oneStepBefore;
+       oneStepBefore = totalWays;
+   }
+
+   return totalWays;
+},
     mySqrt(x)  {
         if (x < 2) return x; // For 0 and 1, the square root is the number itself
     
