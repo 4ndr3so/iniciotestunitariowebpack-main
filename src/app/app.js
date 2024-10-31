@@ -8,6 +8,17 @@
     }
 }*/
 export const prueba = {
+ deleteDuplicates(list){
+    let current = list;
+    while (current !== null && current.next !== null) {
+        if (current.val === current.next.val) {
+            current.next = current.next.next;
+        } else {
+            current = current.next;
+        }
+    }
+    return list;
+ },
     climbStairs(n) {
     if (n <= 2) return n;  // Base cases
 

@@ -67,7 +67,7 @@ function ListNode(val, next) {
                 this.val = (val===undefined ? 0 : val)
                 this.next = (next===undefined ? null : next)
             }
-let list1=new ListNode(1, new ListNode(2, new ListNode(4)))
+let list1=new ListNode(1, new ListNode(2, new ListNode(4,new ListNode(4,new ListNode(5,new ListNode(5,new ListNode(6,new ListNode(7))))))))
 let list2=new ListNode(1, new ListNode(3, new ListNode(4)))
 //prueba.ordenar(tarea)
 //console.log(prueba.solution4(["5","2","C","D","+","5","C","+"]))
@@ -82,7 +82,8 @@ const num=[6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3]
 const a="11"
 const b="1"
 
-console.log(prueba.climbStairs(3));
+
+console.log(prueba.deleteDuplicates(list1));
 //console.log( prueba.mergetwoorderArrays([-1,0,0,3,3,3,0,0,0],6,[1,2,2],3));
 //console.log( prueba.cartas(k));
 
