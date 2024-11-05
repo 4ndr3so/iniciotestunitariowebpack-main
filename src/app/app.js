@@ -8,6 +8,20 @@
     }
 }*/
 export const prueba = {
+    isSameTree(p, q){
+    
+        function compare(p, q) {
+            if (p === null && q === null) return true;
+            if (p === null || q === null) return false;
+            if (p.val !== q.val) return false;
+            
+            return compare(p.left,q.left) && compare(p.right,q.right);   // Traverse right subtree
+
+            
+        }
+
+        return compare(p, q);
+    },
      inorderTraversalWh(root) {
         const result = [];
         const stack = [];
