@@ -8,6 +8,48 @@
     }
 }*/
 export const prueba = {
+     inorderTraversalWh(root) {
+        const result = [];
+        const stack = [];
+        let current = root;
+    
+        while (current !== null || stack.length > 0) {
+            // Reach the leftmost node of the current node
+            while (current !== null) {
+                console.log("current",current.val)
+                stack.push(current);
+                current = current.left;
+            }
+    
+            // Current is now null, so pop from stack
+            console.log("stack1",stack)
+            current = stack.pop();
+            console.log("stack2",stack)
+            console.log("current",current)
+            result.push(current.val); // Visit the node
+    
+            // Visit the right subtree
+            current = current.right;
+        }
+    
+        return result;
+    },
+     inorderTraversal(root) {
+       let result=[];
+
+       function traverse(node){
+
+        if(node==null) return;
+
+        traverse(node.left);
+        result.push(node.val);
+        traverse(node.right)
+
+            }
+        traverse(root)
+        return result;
+       
+    },
  deleteDuplicates(list){
     let current = list;
     while (current !== null && current.next !== null) {

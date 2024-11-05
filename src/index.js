@@ -62,11 +62,17 @@ const matprub4=["abc",
              "abx", 
              "axx", 
              "abc"]
-
+function Treenode(val, left, right) {
+                this.val = (val===undefined ? 0 : val)
+                this.left = (left===undefined ? null : left)
+                this.right = (right===undefined ? null : right)
+            }
 function ListNode(val, next) {
                 this.val = (val===undefined ? 0 : val)
                 this.next = (next===undefined ? null : next)
             }
+
+let tree1=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new Treenode(3, new Treenode(6), new Treenode(7)))
 let list1=new ListNode(1, new ListNode(2, new ListNode(4,new ListNode(4,new ListNode(5,new ListNode(5,new ListNode(6,new ListNode(7))))))))
 let list2=new ListNode(1, new ListNode(3, new ListNode(4)))
 //prueba.ordenar(tarea)
@@ -83,7 +89,8 @@ const a="11"
 const b="1"
 
 
-console.log(prueba.deleteDuplicates(list1));
+console.log(prueba.inorderTraversalWh(tree1));
+
 //console.log( prueba.mergetwoorderArrays([-1,0,0,3,3,3,0,0,0],6,[1,2,2],3));
 //console.log( prueba.cartas(k));
 
