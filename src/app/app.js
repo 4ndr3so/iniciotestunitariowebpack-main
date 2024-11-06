@@ -8,6 +8,22 @@
     }
 }*/
 export const prueba = {
+     isSymmetric(root) {
+        if (root === null) return true;
+    
+        function isMirror(left, right) {
+            // Base case: both nodes are null
+            if (left === null && right === null) return true;
+    
+            // If one of the nodes is null or their values are different
+            if (left === null || right === null || left.val !== right.val) return false;
+    
+            // Check mirroring of subtrees
+            return isMirror(left.left, right.right) && isMirror(left.right, right.left);
+        }
+    
+        return isMirror(root.left, root.right);
+    },
     isSameTree(p, q){
     
         function compare(p, q) {
