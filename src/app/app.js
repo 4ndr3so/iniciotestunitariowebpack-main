@@ -8,6 +8,27 @@
     }
 }*/
 export const prueba = {
+     isSymmetricIterati(root) {
+        if (root === null) return true;
+    
+        const queue = [[root.left, root.right]];
+    
+        while (queue.length > 0) {
+            const [left, right] = queue.shift();
+    
+            // If both are null, continue with the next pair
+            if (left === null && right === null) continue;
+    
+            // If one is null or values don't match, not symmetric
+            if (left === null || right === null || left.val !== right.val) return false;
+    
+            // Enqueue the children in mirror order
+            queue.push([left.left, right.right]);
+            queue.push([left.right, right.left]);
+        }
+    
+        return true;
+    },
      isSymmetric(root) {
         if (root === null) return true;
     
