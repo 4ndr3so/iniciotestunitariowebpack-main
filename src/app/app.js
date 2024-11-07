@@ -8,6 +8,14 @@
     }
 }*/
 export const prueba = {
+    maxDepth(){
+     if(root==null) return 0;
+
+     let maxleft=maxDepth(root.left);
+     let maxright=maxDepth(root.right);
+
+     return Math.max(maxleft,maxright)+1;
+    },
      isSymmetricIterati(root) {
         if (root === null) return true;
     
