@@ -9,8 +9,20 @@
 }*/
 export const prueba = {
     sortedArrayToBST(nums) {
+        function Treenode(val, left, right) {
+            this.val = (val===undefined ? 0 : val)
+            this.left = (left===undefined ? null : left)
+            this.right = (right===undefined ? null : right)
+        }
         //Given an integer array nums where the elements are sorted in ascending order, convert it to a height-balanced binary search tree.
-       
+        if(nums.length==0){
+            return null;
+        }
+        let mid=Math.floor(nums.length/2);
+        let root=new Treenode(nums[mid]);
+        root.left=this.sortedArrayToBST(nums.slice(0,mid));
+        root.right=this.sortedArrayToBST(nums.slice(mid+1));
+        return root;
     },
     maxTreeDepth(root){
         
