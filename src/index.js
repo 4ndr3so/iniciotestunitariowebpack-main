@@ -92,7 +92,7 @@ const a="11"
 const b="1"
 
 
-console.log(prueba.isSymmetricIterati(tree3symetri));
+console.log(prueba.maxTreeDepth(tree3symetri));
 //console.log(prueba.isSameTree(tree1,tree3));
 
 //console.log( prueba.mergetwoorderArrays([-1,0,0,3,3,3,0,0,0],6,[1,2,2],3));

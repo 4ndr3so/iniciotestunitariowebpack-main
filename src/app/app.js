@@ -8,13 +8,24 @@
     }
 }*/
 export const prueba = {
-    maxDepth(){
-     if(root==null) return 0;
-
-     let maxleft=maxDepth(root.left);
-     let maxright=maxDepth(root.right);
-
-     return Math.max(maxleft,maxright)+1;
+    sortedArrayToBST(nums) {
+        //Given an integer array nums where the elements are sorted in ascending order, convert it to a height-balanced binary search tree.
+       
+    },
+    maxTreeDepth(root){
+        
+        function maxDepth(root) {
+        if (root === null) return 0;
+        let leftDepth=0;
+        let rightDepth=0;
+        
+         leftDepth = maxDepth(root.left);
+         rightDepth = maxDepth(root.right);
+    
+         console.log(leftDepth,leftDepth)
+        return Math.max(leftDepth, rightDepth) + 1;
+    }
+    return maxDepth(root);
     },
      isSymmetricIterati(root) {
         if (root === null) return true;
