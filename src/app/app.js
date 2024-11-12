@@ -8,6 +8,42 @@
     }
 }*/
 export const prueba = {
+    ortedArrayToBSTIterative(nums) {//iteravive sortin array to binary tree
+        function TreeNode(val, left, right) {
+            this.val = (val===undefined ? 0 : val)
+            this.left = (left===undefined ? null : left)
+            this.right = (right===undefined ? null : right)
+        }
+        if (nums.length === 0) return null;
+    
+      
+
+        const mid = Math.floor(nums.length / 2);
+        const root = new TreeNode(nums[mid]);
+    
+        const stack = [{ node: root, left: 0, right: nums.length - 1 }];
+    
+        while (stack.length > 0) {
+            const { node, left, right } = stack.pop();
+            const mid = Math.floor((left + right) / 2);
+    
+            // Left child
+            if (mid - 1 >= left) {
+                const leftMid = Math.floor((left + mid - 1) / 2);
+                node.left = new TreeNode(nums[leftMid]);
+                stack.push({ node: node.left, left, right: mid - 1 });
+            }
+    
+            // Right child
+            if (mid + 1 <= right) {
+                const rightMid = Math.floor((mid + 1 + right) / 2);
+                node.right = new TreeNode(nums[rightMid]);
+                stack.push({ node: node.right, left: mid + 1, right });
+            }
+        }
+    
+        return root;
+    },
     sortedArrayToBST(nums) {
         function Treenode(val, left, right) {
             this.val = (val===undefined ? 0 : val)
