@@ -7,13 +7,51 @@
         return arr
     }
 }*/
+function TreeNode(val, left, right) {
+    this.val = (val===undefined ? 0 : val)
+    this.left = (left===undefined ? null : left)
+    this.right = (right===undefined ? null : right)
+}
+
 export const prueba = {
-    ortedArrayToBSTIterative(nums) {//iteravive sortin array to binary tree
-        function TreeNode(val, left, right) {
-            this.val = (val===undefined ? 0 : val)
-            this.left = (left===undefined ? null : left)
-            this.right = (right===undefined ? null : right)
+   
+    
+     isBalanced(root) {
+        function checkHeight(node) {
+            if (node === null) return 0;
+    
+            const leftHeight = checkHeight(node.left);
+            if (leftHeight === -1) return -1;  // Left subtree is unbalanced
+    
+            const rightHeight = checkHeight(node.right);
+            if (rightHeight === -1) return -1;  // Right subtree is unbalanced
+    
+            if (Math.abs(leftHeight - rightHeight) > 1) return -1;  // Current node is unbalanced
+    
+            return 1 + Math.max(leftHeight, rightHeight);
         }
+    
+        return checkHeight(root) !== -1;
+    },
+     sortedArrayToBSTAsc(nums){//ascending order array to binary tree
+        if (nums.length === 0) return null;
+    
+        function helper(left, right) {
+            if (left > right) return null;
+    
+            const mid = Math.floor((left + right) / 2);
+            const root = new TreeNode(nums[mid]);
+    
+            root.left = helper(left, mid - 1);
+            root.right = helper(mid + 1, right);
+    
+            return root;
+        }
+    
+        return helper(0, nums.length - 1);
+    },
+    ortedArrayToBSTIterative(nums) {//iteravive sortin array to binary tree
+       
         if (nums.length === 0) return null;
     
       
