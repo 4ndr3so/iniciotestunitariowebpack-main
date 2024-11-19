@@ -8,70 +8,111 @@
     }
 }*/
 function TreeNode(val, left, right) {
-    this.val = (val===undefined ? 0 : val)
-    this.left = (left===undefined ? null : left)
-    this.right = (right===undefined ? null : right)
+    this.val = (val === undefined ? 0 : val)
+    this.left = (left === undefined ? null : left)
+    this.right = (right === undefined ? null : right)
 }
 
 export const prueba = {
-   
-    
-     isBalanced(root) {
+
+    minDepth(root) {
+        function depth(root) {
+            if (root == null) return 0;
+
+            if (root.left == null && root.right == null) return 1;
+            if (root.left == null) return 1 + depth(root.right);
+            if (root.right == null) return 1 + depth(root.left);
+            let val1 = depth(root.left);
+            let val2 = depth(root.right);
+            return 1 + Math.min(val1, val2);
+
+        }
+
+        return depth(root);
+    },
+    // Iterative
+    minDepth(root) {
+        let queue = [root].filter(Boolean);
+        let level = 1;
+        while (queue.length > 0) {
+            const temp = [];
+
+            while (queue.length > 0) {
+                const node = queue.pop();
+                if (!node.left && !node.right) {
+                    return level;
+                }
+
+                if (node.left) {
+                    temp.push(node.left);
+                }
+                if (node.right) {
+                    temp.push(node.right);
+                }
+
+            }
+            level++;
+            queue = temp;
+        }
+
+        return 0;
+    },
+    isBalanced(root) {
         function checkHeight(node) {
             if (node === null) return 0;
-    
+
             const leftHeight = checkHeight(node.left);
             if (leftHeight === -1) return -1;  // Left subtree is unbalanced
-    
+
             const rightHeight = checkHeight(node.right);
             if (rightHeight === -1) return -1;  // Right subtree is unbalanced
-    
+
             if (Math.abs(leftHeight - rightHeight) > 1) return -1;  // Current node is unbalanced
-    
-            return 1 + Math.max(leftHeight, rightHeight);
+            let result = 1 + Math.max(leftHeight, rightHeight)
+            return result;
         }
-    
+
         return checkHeight(root) !== -1;
     },
-     sortedArrayToBSTAsc(nums){//ascending order array to binary tree
+    sortedArrayToBSTAsc(nums) {//ascending order array to binary tree
         if (nums.length === 0) return null;
-    
+
         function helper(left, right) {
             if (left > right) return null;
-    
+
             const mid = Math.floor((left + right) / 2);
             const root = new TreeNode(nums[mid]);
-    
+
             root.left = helper(left, mid - 1);
             root.right = helper(mid + 1, right);
-    
+
             return root;
         }
-    
+
         return helper(0, nums.length - 1);
     },
     ortedArrayToBSTIterative(nums) {//iteravive sortin array to binary tree
-       
+
         if (nums.length === 0) return null;
-    
-      
+
+
 
         const mid = Math.floor(nums.length / 2);
         const root = new TreeNode(nums[mid]);
-    
+
         const stack = [{ node: root, left: 0, right: nums.length - 1 }];
-    
+
         while (stack.length > 0) {
             const { node, left, right } = stack.pop();
             const mid = Math.floor((left + right) / 2);
-    
+
             // Left child
             if (mid - 1 >= left) {
                 const leftMid = Math.floor((left + mid - 1) / 2);
                 node.left = new TreeNode(nums[leftMid]);
                 stack.push({ node: node.left, left, right: mid - 1 });
             }
-    
+
             // Right child
             if (mid + 1 <= right) {
                 const rightMid = Math.floor((mid + 1 + right) / 2);
@@ -79,170 +120,170 @@ export const prueba = {
                 stack.push({ node: node.right, left: mid + 1, right });
             }
         }
-    
+
         return root;
     },
     sortedArrayToBST(nums) {
         function Treenode(val, left, right) {
-            this.val = (val===undefined ? 0 : val)
-            this.left = (left===undefined ? null : left)
-            this.right = (right===undefined ? null : right)
+            this.val = (val === undefined ? 0 : val)
+            this.left = (left === undefined ? null : left)
+            this.right = (right === undefined ? null : right)
         }
         //Given an integer array nums where the elements are sorted in ascending order, convert it to a height-balanced binary search tree.
-        if(nums.length==0){
+        if (nums.length == 0) {
             return null;
         }
-        let mid=Math.floor(nums.length/2);
-        let root=new Treenode(nums[mid]);
-        root.left=this.sortedArrayToBST(nums.slice(0,mid));
-        root.right=this.sortedArrayToBST(nums.slice(mid+1));
+        let mid = Math.floor(nums.length / 2);
+        let root = new Treenode(nums[mid]);
+        root.left = this.sortedArrayToBST(nums.slice(0, mid));
+        root.right = this.sortedArrayToBST(nums.slice(mid + 1));
         return root;
     },
-    maxTreeDepth(root){
-        
+    maxTreeDepth(root) {
+
         function maxDepth(root) {
-        if (root === null) return 0;
-        let leftDepth=0;
-        let rightDepth=0;
-        
-         leftDepth = maxDepth(root.left);
-         rightDepth = maxDepth(root.right);
-    
-         console.log(leftDepth,leftDepth)
-        return Math.max(leftDepth, rightDepth) + 1;
-    }
-    return maxDepth(root);
+            if (root === null) return 0;
+            let leftDepth = 0;
+            let rightDepth = 0;
+
+            leftDepth = maxDepth(root.left);
+            rightDepth = maxDepth(root.right);
+
+            console.log(leftDepth, leftDepth)
+            return Math.max(leftDepth, rightDepth) + 1;
+        }
+        return maxDepth(root);
     },
-     isSymmetricIterati(root) {
+    isSymmetricIterati(root) {
         if (root === null) return true;
-    
+
         const queue = [[root.left, root.right]];
-    
+
         while (queue.length > 0) {
             const [left, right] = queue.shift();
-    
+
             // If both are null, continue with the next pair
             if (left === null && right === null) continue;
-    
+
             // If one is null or values don't match, not symmetric
             if (left === null || right === null || left.val !== right.val) return false;
-    
+
             // Enqueue the children in mirror order
             queue.push([left.left, right.right]);
             queue.push([left.right, right.left]);
         }
-    
+
         return true;
     },
-     isSymmetric(root) {
+    isSymmetric(root) {
         if (root === null) return true;
-    
+
         function isMirror(left, right) {
             // Base case: both nodes are null
             if (left === null && right === null) return true;
-    
+
             // If one of the nodes is null or their values are different
             if (left === null || right === null || left.val !== right.val) return false;
-    
+
             // Check mirroring of subtrees
             return isMirror(left.left, right.right) && isMirror(left.right, right.left);
         }
-    
+
         return isMirror(root.left, root.right);
     },
-    isSameTree(p, q){
-    
+    isSameTree(p, q) {
+
         function compare(p, q) {
             if (p === null && q === null) return true;
             if (p === null || q === null) return false;
             if (p.val !== q.val) return false;
-            
-            return compare(p.left,q.left) && compare(p.right,q.right);   // Traverse right subtree
 
-            
+            return compare(p.left, q.left) && compare(p.right, q.right);   // Traverse right subtree
+
+
         }
 
         return compare(p, q);
     },
-     inorderTraversalWh(root) {
+    inorderTraversalWh(root) {
         const result = [];
         const stack = [];
         let current = root;
-    
+
         while (current !== null || stack.length > 0) {
             // Reach the leftmost node of the current node
             while (current !== null) {
-                console.log("current",current.val)
+                console.log("current", current.val)
                 stack.push(current);
                 current = current.left;
             }
-    
+
             // Current is now null, so pop from stack
-            console.log("stack1",stack)
+            console.log("stack1", stack)
             current = stack.pop();
-            console.log("stack2",stack)
-            console.log("current",current)
+            console.log("stack2", stack)
+            console.log("current", current)
             result.push(current.val); // Visit the node
-    
+
             // Visit the right subtree
             current = current.right;
         }
-    
+
         return result;
     },
-     inorderTraversal(root) {
-       let result=[];
+    inorderTraversal(root) {
+        let result = [];
 
-       function traverse(node){
+        function traverse(node) {
 
-        if(node==null) return;
+            if (node == null) return;
 
-        traverse(node.left);
-        result.push(node.val);
-        traverse(node.right)
+            traverse(node.left);
+            result.push(node.val);
+            traverse(node.right)
 
-            }
+        }
         traverse(root)
         return result;
-       
+
     },
- deleteDuplicates(list){
-    let current = list;
-    while (current !== null && current.next !== null) {
-        if (current.val === current.next.val) {
-            current.next = current.next.next;
-        } else {
-            current = current.next;
+    deleteDuplicates(list) {
+        let current = list;
+        while (current !== null && current.next !== null) {
+            if (current.val === current.next.val) {
+                current.next = current.next.next;
+            } else {
+                current = current.next;
+            }
         }
-    }
-    return list;
- },
+        return list;
+    },
     climbStairs(n) {
-    if (n <= 2) return n;  // Base cases
+        if (n <= 2) return n;  // Base cases
 
-   let oneStepBefore = 2;
-   let twoStepsBefore = 1;
-   let totalWays = 0;
+        let oneStepBefore = 2;
+        let twoStepsBefore = 1;
+        let totalWays = 0;
 
-   for (let i = 3; i <= n; i++) {
-       totalWays = oneStepBefore + twoStepsBefore;
-       twoStepsBefore = oneStepBefore;
-       oneStepBefore = totalWays;
-   }
+        for (let i = 3; i <= n; i++) {
+            totalWays = oneStepBefore + twoStepsBefore;
+            twoStepsBefore = oneStepBefore;
+            oneStepBefore = totalWays;
+        }
 
-   return totalWays;
-},
-    mySqrt(x)  {
+        return totalWays;
+    },
+    mySqrt(x) {
         if (x < 2) return x; // For 0 and 1, the square root is the number itself
-    
+
         let left = 1;
         let right = x;
         let result = 0;
-    
+
         while (left <= right) {
             const mid = Math.floor((left + right) / 2);
             const square = mid * mid;
-    
+
             if (square === x) {
                 return mid; // Exact square root found
             } else if (square < x) {
@@ -252,63 +293,63 @@ export const prueba = {
                 right = mid - 1;
             }
         }
-    
+
         return result; // Return the floor of the square root
     },
-    quickSorting(arr,start,end) {
+    quickSorting(arr, start, end) {
         //log(n)
         if (arr.length <= 1) {
             return arr;
         }
-        if(start<end){
-            let index= this.partition(arr,start,end);
-            this.quickSorting(arr,start,index-1);
-            this.quickSorting(arr,index+1,end);
+        if (start < end) {
+            let index = this.partition(arr, start, end);
+            this.quickSorting(arr, start, index - 1);
+            this.quickSorting(arr, index + 1, end);
         }
-       
+
         return arr;
 
-    },partition(arr,start,end){
+    }, partition(arr, start, end) {
         console.log("partition")
-        let pivot=arr[end];
-        let index=start;
-        for(let i=start;i<end;i++){
-            if(arr[i]<pivot){
-                let temp=arr[i];
-                arr[i]=arr[index];
-                arr[index]=temp;
+        let pivot = arr[end];
+        let index = start;
+        for (let i = start; i < end; i++) {
+            if (arr[i] < pivot) {
+                let temp = arr[i];
+                arr[i] = arr[index];
+                arr[index] = temp;
                 index++;
             }
         }
-        let temp=arr[end];
-        arr[end]=arr[index];
-        arr[index]=temp;
+        let temp = arr[end];
+        arr[end] = arr[index];
+        arr[index] = temp;
         return index;
     },
     sumTwobinary(a, b) {
         //Given two binary strings a and b, return their sum as a binary string.
         //let a1 = parseInt(a, 2)
         //let b1 = parseInt(b, 2)
-       // return (a1 + b1).toString(2)
+        // return (a1 + b1).toString(2)
 
-       let i = a.length - 1;
-    let j = b.length - 1;
-    let carry = 0;
-    let result = '';
+        let i = a.length - 1;
+        let j = b.length - 1;
+        let carry = 0;
+        let result = '';
 
-    while (i >= 0 || j >= 0 || carry > 0) {
-        const bitA = i >= 0 ? parseInt(a[i], 2) : 0;
-        const bitB = j >= 0 ? parseInt(b[j], 2) : 0;
-        const sum = bitA + bitB + carry;
+        while (i >= 0 || j >= 0 || carry > 0) {
+            const bitA = i >= 0 ? parseInt(a[i], 2) : 0;
+            const bitB = j >= 0 ? parseInt(b[j], 2) : 0;
+            const sum = bitA + bitB + carry;
 
-        result = (sum % 2) + result;  // Append the current bit to result
-        carry = Math.floor(sum / 2);  // Calculate the carry
+            result = (sum % 2) + result;  // Append the current bit to result
+            carry = Math.floor(sum / 2);  // Calculate the carry
 
-        i--;
-        j--;
-    }
+            i--;
+            j--;
+        }
 
-    return result;
+        return result;
     },
     mergeSort(arr) {
         //O(n log n)
@@ -322,7 +363,7 @@ export const prueba = {
             this.mergeSort(left),
             this.mergeSort(right)
         )
-    },merge(left, right) {
+    }, merge(left, right) {
         let result = [];
         let leftIndex = 0;
         let rightIndex = 0;
@@ -338,24 +379,24 @@ export const prueba = {
         return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
     },
     insertionSort(arr) { //n^2
-        for(let i=1;i<arr.length;i++){
-            let value=arr[i];
-            let hole=i;
-            while(hole>0 && arr[hole-1]>value){
-                arr[hole]=arr[hole-1]
-                hole=hole-1;
+        for (let i = 1; i < arr.length; i++) {
+            let value = arr[i];
+            let hole = i;
+            while (hole > 0 && arr[hole - 1] > value) {
+                arr[hole] = arr[hole - 1]
+                hole = hole - 1;
             }
-            arr[hole]=value;
+            arr[hole] = value;
         }
         return arr;
     },
     bubleSort(arr) {    //n^2
-        for(let i=0;i<arr.length;i++){
-            for(let j=0;j<arr.length-i;j++){
-                if(arr[j]>arr[j+1]){//change the order
-                    let temp=arr[j];
-                    arr[j]=arr[j+1];
-                    arr[j+1]=temp;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr.length - i; j++) {
+                if (arr[j] > arr[j + 1]) {//change the order
+                    let temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
                 }
             }
         }
@@ -363,30 +404,30 @@ export const prueba = {
     },
     selectionSort(arr) {
         //O(n^2)
-        for(let i=0;i<arr.length;i++){
-            let min=i;
-            for(let j=i+1;j<arr.length;j++){
-                if(arr[j]<arr[min]){//change the order
-                    min=j;
+        for (let i = 0; i < arr.length; i++) {
+            let min = i;
+            for (let j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[min]) {//change the order
+                    min = j;
                 }
             }
-            if(i!=min){
-                let temp=arr[i];
-                arr[i]=arr[min];
-                arr[min]=temp;
+            if (i != min) {
+                let temp = arr[i];
+                arr[i] = arr[min];
+                arr[min] = temp;
             }
         }
         return arr;
     },
     //66. Plus One
     plusOne(digits) {
-        let size=digits.length;
-        for(let i=size-1;i>=0;i--){
-            if(digits[i]<9){   
+        let size = digits.length;
+        for (let i = size - 1; i >= 0; i--) {
+            if (digits[i] < 9) {
                 digits[i]++;
                 return digits;
-            }else{
-                digits[i]=0;
+            } else {
+                digits[i] = 0;
             }
             digits.unshift(1);
             return digits;
@@ -394,17 +435,17 @@ export const prueba = {
     },
     //58. Length of Last Word Easy Topics Companies Given a string s consisting of words and spaces, return the length of the last word in the string.
     lengthOfLastWord(s) {
-       
-        let size=s.length;
-        let lastworld="";
-        let palabra=false;
-        for(let i=size-1;i>=0;i--){
+
+        let size = s.length;
+        let lastworld = "";
+        let palabra = false;
+        for (let i = size - 1; i >= 0; i--) {
             console.log(s[i])
-            if(s[i]!=' '){
-                
-                palabra=true;
-                lastworld=lastworld+s[i];
-            }else if(palabra==true){
+            if (s[i] != ' ') {
+
+                palabra = true;
+                lastworld = lastworld + s[i];
+            } else if (palabra == true) {
                 return lastworld.length;
             }
         }
@@ -412,23 +453,23 @@ export const prueba = {
 
     },
     //35. Search Insert Position--Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order
-    searchInsertPo(nums,target) {
-       
-        let left=0;
-        let right=nums.length-1;
+    searchInsertPo(nums, target) {
 
-        while(left<=right){
-            const mid=Math.floor((left+right)/2);
-            if(nums[mid] == target){
+        let left = 0;
+        let right = nums.length - 1;
+
+        while (left <= right) {
+            const mid = Math.floor((left + right) / 2);
+            if (nums[mid] == target) {
                 return mid;
-            }else if(nums[mid]<target){
-               left=mid+1;
-            }else {
-               right=mid-1;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
             }
         }
-        return right+1;
-        
+        return right + 1;
+
 
     },
     majorityElement(nums) {
