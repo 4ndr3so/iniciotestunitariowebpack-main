@@ -14,7 +14,22 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
-     
+    generatePascalTriangle(numRows) {
+        const result = [];
+    
+        for (let i = 0; i < numRows; i++) {
+            const row = Array(i + 1).fill(1); // Create a row of length (i+1) filled with 1s
+    
+            // Calculate intermediate values for the row
+            for (let j = 1; j < i; j++) {
+                row[j] = result[i - 1][j - 1] + result[i - 1][j];
+            }
+    
+            result.push(row); // Add the row to the result
+        }
+    
+        return result;
+    },
     hasPathSum(root, targetSum){
         if(root== null) return false;
         if(root.left ==null && root.right==null && root.val ==targetSum) return true;
