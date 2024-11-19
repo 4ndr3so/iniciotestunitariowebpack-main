@@ -14,7 +14,12 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
-
+     
+    hasPathSum(root, targetSum){
+        if(root== null) return false;
+        if(root.left ==null && root.right==null && root.val ==targetSum) return true;
+        return this.hasPathSum(root.left, targetSum-root.val) || this.hasPathSum(root.right, targetSum-root.val);
+    },
     minDepth(root) {
         function depth(root) {
             if (root == null) return 0;

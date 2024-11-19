@@ -76,6 +76,9 @@ let tree1=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new
 let tree2=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new Treenode(3, new Treenode(6), new Treenode(7)))
 let tree3=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new Treenode(3, new Treenode(6)))
 let treebalanced=new Treenode(3, new Treenode(9), new Treenode(20, new Treenode(15),new Treenode(7,null,null)))
+
+let pathash=new Treenode(4, new Treenode(8,new Treenode(2)), new Treenode(9, null ,new Treenode(3)));
+
 let tree3symetri=new Treenode(1, new Treenode(2, new Treenode(3), new Treenode(4)), new Treenode(2, new Treenode(4), new Treenode(3)))
 let list1=new ListNode(1, new ListNode(2, new ListNode(4,new ListNode(4,new ListNode(5,new ListNode(5,new ListNode(6,new ListNode(7))))))))
 let list2=new ListNode(1, new ListNode(3, new ListNode(4)))
@@ -93,8 +96,11 @@ const num2=[-10,-3,0,5,9]
 const a="11"
 const b="1"
 const root = [3,9,20,null,null,15,7]
+let sumTarget=14
 
-console.log(prueba.minDepth(treebalanced))
+console.log(prueba.hasPathSum(pathash,sumTarget))
+console.log(prueba.generatePascalTriangle(5))
+
 //console.log(prueba.maxTreeDepth(tree3symetri));
 
 //console.log(prueba.isSameTree(tree1,tree3));
