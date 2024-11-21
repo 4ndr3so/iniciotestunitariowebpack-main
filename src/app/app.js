@@ -14,6 +14,15 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    generatePascalTriangleRow(rowIndex) {
+        const row = [1]; // Start with the first element as 1
+
+        for (let j = 1; j <= rowIndex; j++) {
+            row.push((row[row.length - 1] * (rowIndex - j + 1)) / j);
+        }
+
+        return row;
+    },
     generatePascalTriangle(numRows) {
         const result = [];
     

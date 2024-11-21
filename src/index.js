@@ -98,8 +98,10 @@ const b="1"
 const root = [3,9,20,null,null,15,7]
 let sumTarget=14
 
-console.log(prueba.hasPathSum(pathash,sumTarget))
-console.log(prueba.generatePascalTriangle(5))
+//console.log(prueba.hasPathSum(pathash,sumTarget))
+//console.log(prueba.generatePascalTriangle(5))
+console.log(prueba.generatePascalTriangleRow(3))
+
 
 //console.log(prueba.maxTreeDepth(tree3symetri));
 
