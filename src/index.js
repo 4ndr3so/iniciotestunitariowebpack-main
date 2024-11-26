@@ -97,8 +97,8 @@ const a="11"
 const b="1"
 const root = [3,9,20,null,null,15,7]
 let sumTarget=14
-let prices = [7,1,5,3,6,4]
-console.log(prueba.maxProfit(prices))
+let prices = [7,7,5,4,5,4,9,2,1,2,1]
+console.log(prueba.singleNumber(prices))
 //console.log(prueba.hasPathSum(pathash,sumTarget))
 //console.log(prueba.generatePascalTriangle(5))
 //console.log(prueba.generatePascalTriangleRow(3))

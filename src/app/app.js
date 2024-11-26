@@ -14,6 +14,13 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    singleNumber(nums) {
+        let result = 0;
+        for (let num of nums) {
+            result ^= num; // XOR each number with the result
+        }
+        return result;
+    },
     palindrome(s) {
         const cleaned = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
     
