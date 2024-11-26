@@ -14,6 +14,12 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    palindrome(s) {
+        const cleaned = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+    
+    // Compare the cleaned string with its reverse
+    return cleaned === cleaned.split('').reverse().join('');
+    },
     maxProfit(prices) {
         if (prices.length < 2) return 0;
 
