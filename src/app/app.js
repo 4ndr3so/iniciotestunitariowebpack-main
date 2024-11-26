@@ -14,6 +14,20 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    maxProfit(prices) {
+        if (prices.length < 2) return 0;
+
+            let minPrice = prices[0]; // Minimum price seen so far
+            let maxProfit = 0;        // Maximum profit achieved so far
+
+            for (let i = 1; i < prices.length; i++) {
+                const currentProfit = prices[i] - minPrice;
+                maxProfit = Math.max(maxProfit, currentProfit); // Update max profit if better profit found
+                minPrice = Math.min(minPrice, prices[i]);       // Update minimum price if a lower one is found
+            }
+
+            return maxProfit;
+    },
     generatePascalTriangleRow(rowIndex) {
         const row = [1]; // Start with the first element as 1
 

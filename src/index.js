@@ -97,10 +97,11 @@ const a="11"
 const b="1"
 const root = [3,9,20,null,null,15,7]
 let sumTarget=14
-
+let prices = [7,1,5,3,6,4]
+console.log(prueba.maxProfit(prices))
 //console.log(prueba.hasPathSum(pathash,sumTarget))
 //console.log(prueba.generatePascalTriangle(5))
-console.log(prueba.generatePascalTriangleRow(3))
+//console.log(prueba.generatePascalTriangleRow(3))
 
 
 //console.log(prueba.maxTreeDepth(tree3symetri));
