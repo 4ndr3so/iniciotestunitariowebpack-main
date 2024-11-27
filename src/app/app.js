@@ -14,6 +14,20 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+     hasCycle(head) {
+        let slow = head;     // Initialize slow pointer
+        let fast = head;     // Initialize fast pointer
+    
+        while (fast !== null && fast.next !== null) {
+            slow = slow.next;          // Move slow by 1 step
+            fast = fast.next.next;     // Move fast by 2 steps
+    
+            if (slow === fast) {       // If they meet, a cycle exists
+                return true;
+            }
+        }
+        return false;  
+    },
     singleNumber(nums) {
         let result = 0;
         for (let num of nums) {

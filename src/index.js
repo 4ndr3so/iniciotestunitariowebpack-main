@@ -119,4 +119,3 @@ console.log(prueba.singleNumber(prices))
 //console.log(prueba.deposit(100,20,170))
 //console.log(prueba.solutionorden(matPrub))
 //console.log(prueba.mergeTwoLists(list1,list2))
-
