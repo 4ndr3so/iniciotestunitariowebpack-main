@@ -14,6 +14,18 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+     getIntersectionNode2(headA, headB) {
+        let p1 = headA;
+        let p2 = headB;
+    
+        while (p1 !== p2) {
+            p1 = (p1 === null) ? headB : p1.next;
+            p2 = (p2 === null) ? headA : p2.next;
+            console.log(p1, p2)
+        }
+    
+        return p1;  // This could be the intersection node or null
+    },
     getIntersectionNode(headA, headB) {
         let a1 = headA;
         let b1 = headB;
