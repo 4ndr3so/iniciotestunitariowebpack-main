@@ -14,6 +14,36 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    convertToTitle(column){
+        let result ="";
+        while(column>0){
+            column--;
+            result = String.fromCharCode(65+column%26)+result;
+            column = Math.floor(column/26);
+        }
+        return result;
+    },
+    findMissingRanges(nums, lower, upper) {
+        let result = [];
+        let prev = lower - 1;  // Initialize previous element outside the lower bound
+        
+        for (let i = 0; i <= nums.length; i++) {
+            let curr = (i < nums.length) ? nums[i] : upper + 1;  // Include the upper bound check
+            
+            if (curr - prev >= 2) {  // There's a gap
+                result.push(formatRange(prev + 1, curr - 1));  // Add missing range
+            }
+            
+            prev = curr;  // Move to the next number
+        }
+        
+        return result;
+    },
+    
+    // Helper function to format the range
+     formatRange(start, end) {
+        return (start === end) ? `${start}` : `${start}->${end}`;
+    },
      getIntersectionNode2(headA, headB) {
         let p1 = headA;
         let p2 = headB;
