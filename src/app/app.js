@@ -14,6 +14,35 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    TwoSum() {
+        
+
+        function TwoSum() { 
+           
+            this.numCounts = new Map();  // Initialize an empty HashMap
+        }
+        
+        TwoSum.prototype.add=function (number) {
+            // Increment the count of the number in the HashMap
+            this.numCounts.set(number, (this.numCounts.get(number) || 0) + 1);
+        }
+    
+        TwoSum.prototype.find=function (value) {
+            for (let num of this.numCounts.keys()) {
+                let complement = value - num;
+                
+                if (complement === num) {  // Special case: pair with the same number
+                    if (this.numCounts.get(num) > 1) return true;
+                } else if (this.numCounts.has(complement)) {
+                    return true;
+                }
+            }
+            return false;  // No pair found
+        }
+        
+        return new TwoSum();
+        
+    },
     convertToTitle(column){
         let result ="";
         while(column>0){
