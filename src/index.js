@@ -78,6 +78,7 @@ let tree3=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new
 let treebalanced=new Treenode(3, new Treenode(9), new Treenode(20, new Treenode(15),new Treenode(7,null,null)))
 
 let pathash=new Treenode(4, new Treenode(8,new Treenode(2)), new Treenode(9, null ,new Treenode(3)));
+let inorderTraversal= new Treenode(1,new Treenode(2,new Treenode(4),new Treenode(5,new Treenode(6),new Treenode(7))),new Treenode(3,null,new Treenode(8,new Treenode(9))))
 
 let tree3symetri=new Treenode(1, new Treenode(2, new Treenode(3), new Treenode(4)), new Treenode(2, new Treenode(4), new Treenode(3)))
 let list1=new ListNode(1, new ListNode(2, new ListNode(4,new ListNode(4,new ListNode(5,new ListNode(5,new ListNode(6,new ListNode(7))))))))
@@ -98,7 +99,7 @@ const b="1"
 const root = [3,9,20,null,null,15,7]
 let sumTarget=14
 let prices = [7,7,5,4,5,4,9,2,1,2,1]
-console.log(prueba.singleNumber(prices))
+console.log(prueba.postorderTraversal(inorderTraversal))
 //console.log(prueba.hasPathSum(pathash,sumTarget))
 //console.log(prueba.generatePascalTriangle(5))
 //console.log(prueba.generatePascalTriangleRow(3))

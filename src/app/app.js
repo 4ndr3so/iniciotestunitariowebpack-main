@@ -14,6 +14,34 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    postorderTraversal(root) {
+        
+        let stack = [root];
+        let result = [];
+        while (stack.length > 0) {
+            const node = stack.pop();
+            if (node !== null) {
+                result.unshift(node.val);
+                stack.push(node.left,node.right);
+               
+            }
+        }
+
+        return result;
+    },
+     preorderTraversal(root) {
+        let result=[];
+        function orderTraversal(root){
+            if(root==null) return;
+            result.push(root.val);
+            orderTraversal(root.left);
+            orderTraversal(root.right);
+        }
+        
+        orderTraversal(root);
+        return result;
+        
+    },
      hasCycle(head) {
         let slow = head;     // Initialize slow pointer
         let fast = head;     // Initialize fast pointer
