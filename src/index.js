@@ -82,7 +82,9 @@ let inorderTraversal= new Treenode(1,new Treenode(2,new Treenode(4),new Treenode
 
 let tree3symetri=new Treenode(1, new Treenode(2, new Treenode(3), new Treenode(4)), new Treenode(2, new Treenode(4), new Treenode(3)))
 let list1=new ListNode(1, new ListNode(2, new ListNode(4,new ListNode(4,new ListNode(5,new ListNode(5,new ListNode(6,new ListNode(7))))))))
-let list2=new ListNode(1, new ListNode(3, new ListNode(4)))
+let list2=new ListNode(4, new ListNode(5, new ListNode(6)))//3
+let list3=new ListNode(1, new ListNode(2, list2))//5
+let list4=new ListNode( 3, list2)//4
 //prueba.ordenar(tarea)
 //console.log(prueba.solution4(["5","2","C","D","+","5","C","+"]))
 
@@ -99,7 +101,7 @@ const b="1"
 const root = [3,9,20,null,null,15,7]
 let sumTarget=14
 let prices = [7,7,5,4,5,4,9,2,1,2,1]
-console.log(prueba.postorderTraversal(inorderTraversal))
+console.log(prueba.getIntersectionNode(list3,list4))
 //console.log(prueba.hasPathSum(pathash,sumTarget))
 //console.log(prueba.generatePascalTriangle(5))
 //console.log(prueba.generatePascalTriangleRow(3))

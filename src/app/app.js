@@ -14,6 +14,52 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    getIntersectionNode(headA, headB) {
+        let a1 = headA;
+        let b1 = headB;
+        //compara dos arreglos si son iguales
+        if (headA === null || headB === null) return null;
+        let lengthA=0;
+        let lengthB=0;
+        while(a1!==null){
+            lengthA++;
+            a1=a1.next;
+        }
+        while(b1!==null){
+            lengthB++;
+            b1=b1.next;
+        }
+        for(let i=0;i<Math.abs(lengthA-lengthB);i++){
+            if(lengthA>lengthB){
+                headA=headA.next;
+            }else{
+                headB=headB.next;
+            }
+        }
+        while(headA!==null && headB!==null){
+            if(headA===headB) return headA.val;
+            headA=headA.next;
+            headB=headB.next;
+        }
+
+        return null;
+    },
+     read4(buf, n) {
+        let buf4 = new Array(4);  // Temporary buffer of size 4
+        let readTotal = 0;        // Total characters read so far
+        
+        while (readTotal < n) {
+            let count = read4(buf4);  // Read up to 4 characters
+            
+            if (count === 0) break;   // End of file (EOF) reached
+            
+            // Copy characters from buf4 to buf (up to n characters)
+            for (let i = 0; i < count && readTotal < n; i++) {
+                buf[readTotal++] = buf4[i];
+            }
+        }
+        return readTotal;
+    },
     postorderTraversal(root) {
         
         let stack = [root];
