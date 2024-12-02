@@ -14,6 +14,19 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+     hammingWeight(n) {
+        return (n.toString(2).match(/1/g) || []).length; 
+    },
+     hammingWeight2(n) {
+        let result = 0;
+        let str = n.toString(2);
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] === '1') {
+                result++;
+            }
+        }
+        return result; 
+    },
     reverseBits2(n) {//convert the number to vinary an the reverse 43261596
         let result = 0;
         let power = 0;
