@@ -105,12 +105,14 @@ const root = [3,9,20,null,null,15,7]
 let sumTarget=14
 let prices = [7,7,5,4,5,4,9,2,1,2,1]
 
-let twoSumaa= prueba.TwoSum();
+/* let twoSumaa= prueba.TwoSum();
 twoSumaa.add(1);  // {1: 1}
 twoSumaa.add(3);  // {1: 1, 3: 1}
 twoSumaa.add(5);  // {1: 1, 3: 1, 5: 1}
 console.log(twoSumaa.find(4));  // true (1 + 3)
-console.log(twoSumaa.find(7));  // false (no pair sums to 7)
+console.log(twoSumaa.find(7));  // false (no pair sums to 7) */
+/* console.log(prueba.titleToNumber("AZ")) */
+console.log(prueba.reverseBits2(43261596))
 //twoSum.add(1);  // {1: 1}
 
 

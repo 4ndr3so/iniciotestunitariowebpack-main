@@ -14,6 +14,36 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    reverseBits2(n) {//convert the number to vinary an the reverse 43261596
+        let result = 0;
+        let power = 0;
+           while (n > 0) {
+               result = result * 2 + (n % 2);
+               n = Math.floor(n / 2);
+               power++;
+           }
+           return result * Math.pow(2, 32 - power);
+   
+    },
+     reverseBits(n) {//reverse the bit "00000010100101000001111010011100"
+         let result = 0;
+         let power = 0;
+        let changeNumber = n.toString();
+        for(let i=0;i<changeNumber.length-1;i++){
+    
+            result+=Number(changeNumber[i])*Math.pow(2,power);	
+            
+            power++;
+        }
+        return result;
+    },
+     titleToNumber(letter) {
+        let result = 0;
+        for (let i = 0; i < letter.length; i++) {
+            result = result * 26 + letter.charCodeAt(i) - 64;
+        }
+        return result;
+    },
     TwoSum() {
         
 
@@ -43,6 +73,7 @@ export const prueba = {
         return new TwoSum();
         
     },
+    
     convertToTitle(column){
         let result ="";
         while(column>0){
