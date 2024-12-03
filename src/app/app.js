@@ -14,7 +14,26 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
-    isHappy2(n) {
+     removeElements(head , val) {
+        if (head === null) return null;
+        head.next = this.removeElements(head.next, val);
+        if(head.val === val){
+            let temp = head.next;
+            if(temp !== null){
+                console.log(temp.val)
+            }
+         
+            return temp;
+        }else{
+            console.log(head.val)
+            return head;
+        }
+       /*  console.log(head.val)
+        return head.val === val ? head.next : head; */
+
+
+    },
+    isHappy2(n) {//if i want to find a cycle slow and fast pointer
         function digitSquareSum(n) {
             let sum = 0;
             while (n > 0) {
@@ -1112,12 +1131,12 @@ set bits
         }
     }, mergeTwoLists(list1, list2) {
 
-        function ListNode(val, next) {
+        function head(val, next) {
             this.val = (val === undefined ? 0 : val)
             this.next = (next === undefined ? null : next)
         }
 
-        let nuelist = new ListNode(null)
+        let nuelist = new head(null)
 
         let current = nuelist;
 

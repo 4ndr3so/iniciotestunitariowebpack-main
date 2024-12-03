@@ -88,6 +88,7 @@ let list4=new ListNode( 3, list2)//4
 let listinter=new ListNode( "O", new ListNode("U"))//4
 let lista=new ListNode( "A", new ListNode("E",new ListNode("I",listinter)))//4
 let listb=new ListNode( "F", listinter)//4
+let listRemove=new ListNode( 1,new ListNode(2,new ListNode( 6,new ListNode( 3,new ListNode( 4,new ListNode( 5,new ListNode( 6)))))))//4
 //prueba.ordenar(tarea)
 //console.log(prueba.solution4(["5","2","C","D","+","5","C","+"]))
 
@@ -112,7 +113,7 @@ twoSumaa.add(5);  // {1: 1, 3: 1, 5: 1}
 console.log(twoSumaa.find(4));  // true (1 + 3)
 console.log(twoSumaa.find(7));  // false (no pair sums to 7) */
 /* console.log(prueba.titleToNumber("AZ")) */
-console.log(prueba.isHappy2(2))
+console.log(prueba.removeElements(listRemove,6))
 //twoSum.add(1);  // {1: 1}
 
 
