@@ -112,7 +112,7 @@ twoSumaa.add(5);  // {1: 1, 3: 1, 5: 1}
 console.log(twoSumaa.find(4));  // true (1 + 3)
 console.log(twoSumaa.find(7));  // false (no pair sums to 7) */
 /* console.log(prueba.titleToNumber("AZ")) */
-console.log(prueba.reverseBits2(43261596))
+console.log(prueba.isHappy2(2))
 //twoSum.add(1);  // {1: 1}
 
 

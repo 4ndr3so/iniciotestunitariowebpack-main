@@ -14,7 +14,50 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    isHappy2(n) {
+        function digitSquareSum(n) {
+            let sum = 0;
+            while (n > 0) {
+                let digit = n % 10;
+                sum += digit * digit;
+                n = Math.floor(n / 10);
+            }
+            return sum;
+        }
+
+        let nums= new Set();
+        while(n!=1 && !nums.has(n)){
+            nums.add(n);
+            n=digitSquareSum(n);
+        }
+        return n===1;
+    },
+    isHappy(n) {
+        function digitSquareSum(n) {
+            let sum = 0;
+            while (n > 0) {
+                let digit = n % 10;
+                sum += digit * digit;
+                n = Math.floor(n / 10);
+            }
+            return sum;
+        }
+
+        let slow = n;
+        let fast = n;
+        do {
+            slow = this.digitSquareSum(slow);
+            fast = this.digitSquareSum(this.digitSquareSum(fast));
+        } while (slow != fast);
+        return slow == 1;
+
+       
+
+    },   
      hammingWeight(n) {
+        /*  Given a positive integer n, write a function that returns the number of 
+set bits
+ in its binary representation (also known as the Hamming weight). */
         return (n.toString(2).match(/1/g) || []).length; 
     },
      hammingWeight2(n) {
