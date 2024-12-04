@@ -14,6 +14,18 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    isIsomorphic2(s, t) {
+        const mapS = new Array(256).fill(-1);
+        const mapT = new Array(256).fill(-1);
+        const length = s.length;
+        for (let i = 0; i < length; i++) {
+            const sChar = s.charCodeAt(i);
+            const tChar = t.charCodeAt(i);
+            if (mapS[sChar] !== mapT[tChar]) return false;
+            mapS[sChar] = mapT[tChar] = i;
+        }
+        return true;
+    },
      isIsomorphic(s, t) {
         if (s.length !== t.length) return false;
         const mapS = new Map();
