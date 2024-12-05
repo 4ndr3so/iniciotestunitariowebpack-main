@@ -14,6 +14,22 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+ reverseList(head) {
+
+    if (head === null) return null;
+    let prev = null;
+    let current = head;
+    let next = head.next;
+    while(current !== null){
+        current.next = prev;
+        prev = current;
+        current = next;
+        if(next !== null){
+            next = next.next;
+        }
+    }
+    return prev;
+},
     isIsomorphic2(s, t) {
         const mapS = new Array(256).fill(-1);
         const mapT = new Array(256).fill(-1);

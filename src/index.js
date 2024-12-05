@@ -83,7 +83,7 @@ let inorderTraversal= new Treenode(1,new Treenode(2,new Treenode(4),new Treenode
 let tree3symetri=new Treenode(1, new Treenode(2, new Treenode(3), new Treenode(4)), new Treenode(2, new Treenode(4), new Treenode(3)))
 let list1=new ListNode(1, new ListNode(2, new ListNode(4,new ListNode(4,new ListNode(5,new ListNode(5,new ListNode(6,new ListNode(7))))))))
 let list2=new ListNode(4, new ListNode(5, new ListNode(6)))//3
-let list3=new ListNode(1, new ListNode(2, list2))//5
+let list3=new ListNode(1, new ListNode(2, new ListNode(3, list2)))//5
 let list4=new ListNode( 3, list2)//4
 let listinter=new ListNode( "O", new ListNode("U"))//4
 let lista=new ListNode( "A", new ListNode("E",new ListNode("I",listinter)))//4
@@ -113,7 +113,7 @@ twoSumaa.add(5);  // {1: 1, 3: 1, 5: 1}
 console.log(twoSumaa.find(4));  // true (1 + 3)
 console.log(twoSumaa.find(7));  // false (no pair sums to 7) */
 /* console.log(prueba.titleToNumber("AZ")) */
-console.log(prueba.isIsomorphic2("paper","title"))
+console.log(prueba.reverseList(list3))
 //twoSum.add(1);  // {1: 1}
 
 
