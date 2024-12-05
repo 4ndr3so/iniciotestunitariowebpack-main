@@ -113,7 +113,7 @@ twoSumaa.add(5);  // {1: 1, 3: 1, 5: 1}
 console.log(twoSumaa.find(4));  // true (1 + 3)
 console.log(twoSumaa.find(7));  // false (no pair sums to 7) */
 /* console.log(prueba.titleToNumber("AZ")) */
-console.log(prueba.reverseList(list3))
+console.log(prueba.reverseList2(list3))
 //twoSum.add(1);  // {1: 1}
 
 

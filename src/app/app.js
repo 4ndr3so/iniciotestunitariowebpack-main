@@ -14,6 +14,21 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    reverseList2(head) {
+        // Base case: if head is null or only one node, return head
+        if (head === null || head.next === null) {
+            return head;
+        }
+        
+        // Reverse the rest of the list
+        let newHead = this.reverseList2(head.next);
+        
+        // Re-link the current node
+        head.next.next = head;
+        head.next = null;  // Set the current node's next to null (new tail)
+    
+        return newHead;  // Return the new head of the reversed list
+    },
  reverseList(head) {
 
     if (head === null) return null;
