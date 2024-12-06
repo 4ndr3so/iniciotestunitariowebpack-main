@@ -14,6 +14,16 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+     containsDuplicate(nums) {
+        let dupli= new Map();
+            for(let i=0;i<nums.length;i++){
+                if(dupli.has(nums[i])){
+                    return true;
+                }
+                dupli.set(nums[i],1);
+            }
+            return false;
+    },
     reverseList2(head) {
         // Base case: if head is null or only one node, return head
         if (head === null || head.next === null) {
