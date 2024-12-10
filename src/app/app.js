@@ -1,4 +1,5 @@
 
+
 /*module.exports={
 
 
@@ -14,6 +15,67 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    invertTree2(root){
+        let val=[];
+        let aux= new TreeNode();
+        function invertTreezux(root){
+            if(root==null) return null;
+            val.push(root.val)
+            aux=root.left;
+            root.left=root.right;
+            root.right=aux;
+            console.log(val)
+            invertTreezux(root.left);
+            invertTreezux(root.right);
+            return root;
+
+        }
+    return invertTreezux(root);
+    },
+    invertTree(root){
+        if(root==null) return null;
+        debugger;
+        let left= this.invertTree(root.left);
+        let right= this.invertTree(root.right);
+        root.left=right;
+        root.right=left;
+        return root;
+    },
+    implStackQueues2(){
+        class MyStack {
+            constructor() {
+                this.q1 = [];
+                this.q2 = [];
+            }
+        
+            push(x) {
+                this.q1.push(x);
+            }
+        
+            pop() {
+                while (this.q1.length > 1) {
+                    this.q2.push(this.q1.shift());
+                }
+                const poppedElement = this.q1.shift(); // The last element in q1
+                [this.q1, this.q2] = [this.q2, this.q1]; // Swap queues
+                return poppedElement;
+            }
+        
+            top() {
+                while (this.q1.length > 1) {
+                    this.q2.push(this.q1.shift());
+                }
+                const topElement = this.q1[0]; // Peek the last element
+                this.q2.push(this.q1.shift()); // Move it to q2
+                [this.q1, this.q2] = [this.q2, this.q1]; // Swap queues
+                return topElement;
+            }
+        
+            empty() {
+                return this.q1.length === 0;
+            }
+        }
+    },
     implStackQueues(){
 
         class MyStack {
@@ -34,7 +96,7 @@ export const prueba = {
             }
         
             empty() {
-                return this.queue.length>=1;
+                return this.queue.length==0;
             }
         }
     return new MyStack();     

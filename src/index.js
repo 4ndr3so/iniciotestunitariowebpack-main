@@ -77,6 +77,8 @@ let tree2=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new
 let tree3=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new Treenode(3, new Treenode(6)))
 let treebalanced=new Treenode(3, new Treenode(9), new Treenode(20, new Treenode(15),new Treenode(7,null,null)))
 
+let list5=new Treenode(4, new Treenode(2, new Treenode(1),new Treenode(3)),new Treenode(7,new Treenode(6),new Treenode(9)))//5
+
 let pathash=new Treenode(4, new Treenode(8,new Treenode(2)), new Treenode(9, null ,new Treenode(3)));
 let inorderTraversal= new Treenode(1,new Treenode(2,new Treenode(4),new Treenode(5,new Treenode(6),new Treenode(7))),new Treenode(3,null,new Treenode(8,new Treenode(9))))
 
@@ -84,6 +86,7 @@ let tree3symetri=new Treenode(1, new Treenode(2, new Treenode(3), new Treenode(4
 let list1=new ListNode(1, new ListNode(2, new ListNode(4,new ListNode(4,new ListNode(5,new ListNode(5,new ListNode(6,new ListNode(7))))))))
 let list2=new ListNode(4, new ListNode(5, new ListNode(6)))//3
 let list3=new ListNode(1, new ListNode(2, new ListNode(3, list2)))//5
+
 let list4=new ListNode( 3, list2)//4
 let listinter=new ListNode( "O", new ListNode("U"))//4
 let lista=new ListNode( "A", new ListNode("E",new ListNode("I",listinter)))//4
@@ -108,13 +111,14 @@ let prices = [7,7,5,4,5,4,9,2,1,2,1]
 let num2Dup=[1,2,3,4,8,6,1,5,1]
 
 
-let quee=prueba.implStackQueues()
+console.log(prueba.invertTree(list5))
+//let quee=prueba.implStackQueues()
 
-quee.push("1")
-quee.push("2")
-console.log(quee.top())
-console.log(quee.top())
-console.log(quee.empty())
+//quee.push("1")
+//quee.push("2")
+//console.log(quee.top())
+//console.log(quee.top())
+//console.log(quee.empty())
 /* let twoSumaa= prueba.TwoSum();
 twoSumaa.add(1);  // {1: 1}
 twoSumaa.add(3);  // {1: 1, 3: 1}
