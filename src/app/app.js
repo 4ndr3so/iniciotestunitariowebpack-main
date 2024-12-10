@@ -14,30 +14,7 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
-    containsNearbyDuplicateSet(nums,k) {
-        let result = false;
-        let set = new Set();
-        for (let i = 0; i < nums.length; i++) {
-            if (set.has(nums[i])) {
-                result = true;
-            }
-            set.add(nums[i]);
-            if (set.size > k) {
-                set.delete(nums[i - k]);
-            }
-        }
-    },
-    containsNearbyDuplicate2(nums,k) {
-        let result = false;
-        let map = new Map();
-        for (let i = 0; i < nums.length; i++) {
-            if (map.has(nums[i]) && i - map.get(nums[i]) <= k) {
-                result = true;
-            }
-            map.set(nums[i], i);
-        }
-        return result; 
-    },
+    
      containsNearbyDuplicate(nums,k) {
     let result = false;
 
