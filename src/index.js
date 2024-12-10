@@ -107,6 +107,14 @@ let sumTarget=14
 let prices = [7,7,5,4,5,4,9,2,1,2,1]
 let num2Dup=[1,2,3,4,8,6,1,5,1]
 
+
+let quee=prueba.implStackQueues()
+
+quee.push("1")
+quee.push("2")
+console.log(quee.top())
+console.log(quee.top())
+console.log(quee.empty())
 /* let twoSumaa= prueba.TwoSum();
 twoSumaa.add(1);  // {1: 1}
 twoSumaa.add(3);  // {1: 1, 3: 1}
@@ -114,7 +122,7 @@ twoSumaa.add(5);  // {1: 1, 3: 1, 5: 1}
 console.log(twoSumaa.find(4));  // true (1 + 3)
 console.log(twoSumaa.find(7));  // false (no pair sums to 7) */
 /* console.log(prueba.titleToNumber("AZ")) */
-console.log(prueba.countNodes2(tree3))
+//console.log(prueba.countNodes2(tree3))
 //twoSum.add(1);  // {1: 1}
 
 

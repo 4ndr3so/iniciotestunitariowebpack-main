@@ -14,6 +14,31 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    implStackQueues(){
+
+        class MyStack {
+            constructor() {
+                this.queue=[];
+            }
+        
+            push(x){
+                this.queue.push(x);
+            }
+        
+            pop() {
+                this.queue.pop();
+            }
+        
+            top() {
+                return this.queue[this.queue.length-1]
+            }
+        
+            empty() {
+                return this.queue.length>=1;
+            }
+        }
+    return new MyStack();     
+    },
     countNodes2(root) {
         let count=0;;
         function countNodesTmp(root){
