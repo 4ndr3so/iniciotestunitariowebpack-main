@@ -14,7 +14,47 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
-    
+    countNodes2(root) {
+        let count=0;;
+        function countNodesTmp(root){
+            if(root==null) return 0;
+            console.log(count)
+           return count=1+countNodesTmp(root.left)+countNodesTmp(root.right);
+         
+        }
+        
+        return  countNodesTmp(root);
+        
+    },
+    countNodes(root) {
+        if (root === null) return 0;
+        return 1 + this.countNodes(root.left) + this.countNodes(root.right);
+    },
+    containsNearbyDuplicateSet(nums,k) {
+        let result = false;
+        let set = new Set();
+        for (let i = 0; i < nums.length; i++) {
+            if (set.has(nums[i])) {
+                result = true;
+            }
+            set.add(nums[i]);
+            if (set.size > k) {
+                set.delete(nums[i - k]);
+            }
+        }
+        return result; 
+    },
+    containsNearbyDuplicate2(nums,k) {
+        let result = false;
+        let map = new Map();
+        for (let i = 0; i < nums.length; i++) {
+            if (map.has(nums[i]) && i - map.get(nums[i]) <= k) {
+                result = true;
+            }
+            map.set(nums[i], i);
+        }
+        return result; 
+    },
      containsNearbyDuplicate(nums,k) {
     let result = false;
 
