@@ -15,6 +15,40 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    isPowerOfTwo2(n) {
+        if (n <= 0) return false;
+        return (n & (n - 1)) === 0;
+    },
+     isPowerOfTwo(n) {
+        if (n <= 0) return false;
+        let cont=0;
+        let operation=0;
+        while(operation<=n){
+            operation=Math.pow(2, cont)
+            cont++
+            if(operation===n) return true
+            
+        }
+        return false;
+    },
+     summaryRanges(nums) {
+       let result=[]
+       let start=0;
+       let end=0;
+       for(let i=0;i<nums.length;i++)
+       {
+        if( nums[i]+1!==nums[i+1]){
+            end=i
+            if(start===end){
+                result.push(nums[start].toString())
+            }else{
+                result.push(nums[start].toString()+"->"+nums[end].toString())
+            }
+            start=i+1
+        }
+       }
+       return result
+    },
     invertTree2(root){
         let val=[];
         let aux= new TreeNode();
