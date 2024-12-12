@@ -112,6 +112,12 @@ let num2Dup=[1,2,3,4,8,6,1,5,1]
 
 
 console.log(prueba.isPowerOfTwo(8))
+let quee=prueba.myQueue()
+quee.push(1)
+quee.push(2)
+console.log(quee.peek())
+console.log(quee.pop())
+console.log(quee.empty())
 //let quee=prueba.implStackQueues()
 
 //quee.push("1")

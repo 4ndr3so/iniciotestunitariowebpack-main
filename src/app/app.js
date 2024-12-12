@@ -26,7 +26,7 @@ export const prueba = {
             }
         
             pop() {
-                this.q1.shift();
+               return this.q1.shift();
             }
         
             peek() {
