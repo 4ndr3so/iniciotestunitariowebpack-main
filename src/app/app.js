@@ -15,6 +15,30 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    myQueue() {
+        class MyQueue {
+            constructor() {
+                this.q1 = [];
+            }
+        
+            push(x) {
+                this.q1.push(x);
+            }
+        
+            pop() {
+                this.q1.shift();
+            }
+        
+            peek() {
+                return this.q1[0];
+            }
+        
+            empty() {
+                return this.q1.length === 0;
+            }
+        }
+        return new MyQueue();
+    },
     isPowerOfTwo2(n) {
         if (n <= 0) return false;
         return (n & (n - 1)) === 0;
