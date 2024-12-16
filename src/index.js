@@ -86,7 +86,7 @@ let tree3symetri=new Treenode(1, new Treenode(2, new Treenode(3), new Treenode(4
 let list1=new ListNode(1, new ListNode(2, new ListNode(4,new ListNode(4,new ListNode(5,new ListNode(5,new ListNode(6,new ListNode(7))))))))
 let list2=new ListNode(4, new ListNode(5, new ListNode(6)))//3
 let list3=new ListNode(1, new ListNode(2, new ListNode(3, list2)))//5
-
+let list6=new ListNode(1,new ListNode(2,new ListNode(3,new ListNode(2,new ListNode(1)))))
 let list4=new ListNode( 3, list2)//4
 let listinter=new ListNode( "O", new ListNode("U"))//4
 let lista=new ListNode( "A", new ListNode("E",new ListNode("I",listinter)))//4
@@ -110,14 +110,14 @@ let sumTarget=14
 let prices = [7,7,5,4,5,4,9,2,1,2,1]
 let num2Dup=[1,2,3,4,8,6,1,5,1]
 
-
-console.log(prueba.isPowerOfTwo(8))
+console.log(prueba.isPalindrome2(list6))
+/* console.log(prueba.isPowerOfTwo(8))
 let quee=prueba.myQueue()
 quee.push(1)
 quee.push(2)
 console.log(quee.peek())
 console.log(quee.pop())
-console.log(quee.empty())
+console.log(quee.empty()) */
 //let quee=prueba.implStackQueues()
 
 //quee.push("1")
