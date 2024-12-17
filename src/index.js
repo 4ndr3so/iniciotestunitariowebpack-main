@@ -110,7 +110,7 @@ let sumTarget=14
 let prices = [7,7,5,4,5,4,9,2,1,2,1]
 let num2Dup=[1,2,3,4,8,6,1,5,1]
 
-console.log(prueba.isAnagram2("car","cat"))
+console.log(prueba.intToRoman(1999))
 /* console.log(prueba.isPowerOfTwo(8))
 let quee=prueba.myQueue()
 quee.push(1)
