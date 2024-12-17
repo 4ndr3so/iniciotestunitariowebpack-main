@@ -15,6 +15,34 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    isAnagram2(s, t) {
+        if (s.length !== t.length) return false;
+        const map = new Map();
+        for (let i = 0; i < s.length; i++) {
+            map.set(s[i], (map.get(s[i]) || 0) + 1);
+            map.set(t[i], (map.get(t[i]) || 0) - 1);
+        }
+        for (let count of map.values()) {
+            if (count !== 0) return false;
+        }
+        return true;
+    },
+     isAnagram(s, t) {//con un set no funciona si tiene los mismos letras
+        if(s.length!=t.length) return false
+        let com= new Set();
+        let com2= new Set();
+        for(let i=0;i<s.length;i++){
+            com.add(s[i])
+            com2.add(t[i])
+        }
+       // com.forEach(element => { el bucle foreach no detiene la iteracion
+       for (let element of com) {         
+            if(!com2.has(element)){
+                return false;
+            }
+        };
+        return true;
+    },
     isPalindrome2(head){
         let prev = null;
         let slow = head;
