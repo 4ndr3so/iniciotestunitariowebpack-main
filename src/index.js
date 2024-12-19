@@ -75,6 +75,7 @@ function ListNode(val, next) {
 let tree1=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new Treenode(3, new Treenode(6), new Treenode(7)))
 let tree2=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new Treenode(3, new Treenode(6), new Treenode(7)))
 let tree3=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new Treenode(3, new Treenode(6)))
+let treeLeaft=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new Treenode(3))
 let treebalanced=new Treenode(3, new Treenode(9), new Treenode(20, new Treenode(15),new Treenode(7,null,null)))
 
 let list5=new Treenode(4, new Treenode(2, new Treenode(1),new Treenode(3)),new Treenode(7,new Treenode(6),new Treenode(9)))//5
@@ -110,7 +111,8 @@ let sumTarget=14
 let prices = [7,7,5,4,5,4,9,2,1,2,1]
 let num2Dup=[1,2,3,4,8,6,1,5,1]
 const intervals =[[15, 30], [5, 10], [3, 4]];
-console.log(prueba.canAttendMeetings(intervals));
+
+console.log(prueba.binaryTreePaths(treeLeaft));
 //console.log(prueba.StrobogrammaticNum("106901"))
 /* console.log(prueba.isPowerOfTwo(8))
 let quee=prueba.myQueue()

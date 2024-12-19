@@ -15,6 +15,39 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    binaryTreePaths2(root) {
+        let result = [];
+        function dfs(node, path) {
+            if (node === null) return;
+            path += node.val;
+            if (node.left === null && node.right === null) {
+                result.push(path);
+            } else {
+                path += '->';
+                dfs(node.left, path);
+                dfs(node.right, path);
+            }
+        }
+        dfs(root, '');
+        return result;
+    },
+     binaryTreePaths(root ) {
+        let arrReult=[]       
+        function binaryTreeREcur(root,leaft){
+            if(root==null) return null
+            leaft=leaft+root.val
+
+            if(root.left===null && root.right===null){ 
+                arrReult.push(leaft)
+            }else{
+                leaft=leaft+"->"
+            let left=binaryTreeREcur(root.left,leaft)
+            let right=binaryTreeREcur(root.right,leaft) 
+            }
+        }
+        binaryTreeREcur(root,"")
+        return arrReult
+    },
     canAttendMeetings(intervals) {
         // Step 1: Sort intervals by start time
         intervals.sort((a, b) => a[0] - b[0]);
