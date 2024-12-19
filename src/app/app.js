@@ -15,6 +15,31 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    binaryTreePaths3(root) {
+        if (!root) return [];
+
+    const result = [];
+    const stack = [[root, `${root.val}`]];
+
+    while (stack.length > 0) {
+        const [node, path] = stack.pop();
+
+        // If it's a leaf node, add the path to the result
+        if (!node.left && !node.right) {
+            result.push(path);
+        }
+
+        // Push the right and left child nodes with updated paths
+        if (node.right) {
+            stack.push([node.right, `${path}->${node.right.val}`]);
+        }
+        if (node.left) {
+            stack.push([node.left, `${path}->${node.left.val}`]);
+        }
+    }
+
+    return result;
+    },
     binaryTreePaths2(root) {
         let result = [];
         function dfs(node, path) {
