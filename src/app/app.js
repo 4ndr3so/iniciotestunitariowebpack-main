@@ -15,6 +15,34 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    StrobogrammaticNum(num){
+        const strobogrammaticMap = {
+            '0': '0',
+            '1': '1',
+            '6': '9',
+            '8': '8',
+            '9': '6'
+        };
+
+        if(num===2||num===3||num==4||num==5||num==7) return false
+        let left=0
+        let right=num.length-1
+        while (left <= right) {
+            const leftChar = num[left];
+            const rightChar = num[right];
+            if (
+                !strobogrammaticMap.hasOwnProperty(leftChar) ||
+                strobogrammaticMap[rightChar] !== leftChar
+            ) {
+                return false;
+            }
+    
+            left++;
+            right--;
+        }
+    
+        return true;
+    },
     intToRoman(num) {
         const valueMap = [
             { value: 1000, symbol: 'M' },
