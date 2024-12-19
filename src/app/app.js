@@ -15,6 +15,19 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    canAttendMeetings(intervals) {
+        // Step 1: Sort intervals by start time
+        intervals.sort((a, b) => a[0] - b[0]);
+    
+        // Step 2: Check for overlaps
+        for (let i = 0; i < intervals.length - 1; i++) {
+            if (intervals[i][1] > intervals[i + 1][0]) {
+                return false; // Overlap found
+            }
+        }
+    
+        return true; // No overlaps
+    },
     StrobogrammaticNum(num){
         const strobogrammaticMap = {
             '0': '0',

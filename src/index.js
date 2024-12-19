@@ -109,8 +109,9 @@ const root = [3,9,20,null,null,15,7]
 let sumTarget=14
 let prices = [7,7,5,4,5,4,9,2,1,2,1]
 let num2Dup=[1,2,3,4,8,6,1,5,1]
-
-console.log(prueba.StrobogrammaticNum("106901"))
+const intervals =[[15, 30], [5, 10], [3, 4]];
+console.log(prueba.canAttendMeetings(intervals));
+//console.log(prueba.StrobogrammaticNum("106901"))
 /* console.log(prueba.isPowerOfTwo(8))
 let quee=prueba.myQueue()
 quee.push(1)
