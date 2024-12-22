@@ -112,7 +112,7 @@ let prices = [7,7,5,4,5,4,9,2,1,2,1]
 let num2Dup=[1,2,3,4,8,6,1,5,1]
 const intervals =[[15, 30], [5, 10], [3, 4]];
 
-console.log(prueba.addDigits(38));
+console.log(prueba.addDigits2(27));
 //console.log(prueba.StrobogrammaticNum("106901"))
 /* console.log(prueba.isPowerOfTwo(8))
 let quee=prueba.myQueue()

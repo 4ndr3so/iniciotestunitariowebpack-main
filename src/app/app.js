@@ -15,6 +15,11 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    addDigits2(num){
+        if (num.toString().length<=1) return num
+        return 1 + (num - 1) % 9;
+        
+    },
     addDigits(num){
         if (num.toString().length<=1) return num
         let ope=num.toString();
