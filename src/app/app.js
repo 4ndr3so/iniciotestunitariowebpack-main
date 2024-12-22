@@ -15,6 +15,17 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+    addDigits(num){
+        if (num.toString().length<=1) return num
+        let ope=num.toString();
+        let result=0
+        for (let i = 0; i < ope.length; i++) {
+          
+            result =result+ Number(ope[i]);
+            
+        }
+        return this.addDigits(result);
+    },
     binaryTreePaths3(root) {
         if (!root) return [];
 
