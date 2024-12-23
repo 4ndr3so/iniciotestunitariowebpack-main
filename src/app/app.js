@@ -15,7 +15,15 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
-     isUgly(n) {
+    missingNumber(nums) {//Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+    let max=(nums.length*(1+nums.length))/2;
+    let sum=0;
+        for(let i=0;i<nums.length;i++){
+            sum+=nums[i];
+        }
+        return max-sum;
+    },
+     isUgly(n) {//An ugly number is a positive integer which does not have a prime factor other than 2, 3, and 5.
      if(n<=0) return false;
         if(n==1) return true;
         if(n%2==0) return this.isUgly(n/2);

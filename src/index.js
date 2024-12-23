@@ -111,8 +111,9 @@ let sumTarget=14
 let prices = [7,7,5,4,5,4,9,2,1,2,1]
 let num2Dup=[1,2,3,4,8,6,1,5,1]
 const intervals =[[15, 30], [5, 10], [3, 4]];
+let nums = [9,6,4,2,3,5,7,0,1];
 
-console.log(prueba.isUgly(2));
+console.log(prueba.missingNumber(nums));
 //console.log(prueba.StrobogrammaticNum("106901"))
 /* console.log(prueba.isPowerOfTwo(8))
 let quee=prueba.myQueue()
