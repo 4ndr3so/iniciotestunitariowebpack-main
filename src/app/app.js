@@ -15,6 +15,15 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+     isUgly(n) {
+     if(n<=0) return false;
+        if(n==1) return true;
+        if(n%2==0) return this.isUgly(n/2);
+        if(n%3==0) return this.isUgly(n/3);
+        if(n%5==0) return this.isUgly(n/5);
+        
+        return false;
+        },
     addDigits2(num){
         if (num.toString().length<=1) return num
         return 1 + (num - 1) % 9;
