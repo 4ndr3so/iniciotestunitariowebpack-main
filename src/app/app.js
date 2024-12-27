@@ -15,6 +15,22 @@ function TreeNode(val, left, right) {
 }
 
 export const prueba = {
+     solutionIsBad(isBadVersion) {
+
+        return function(n) {
+            let left = 1, right = n;
+            while (left < right) {
+                const mid = Math.floor((left + right) / 2);
+                if (isBadVersion(mid)) {
+                    right = mid; // Move to the left side
+                } else {
+                    left = mid + 1; // Move to the right side
+                }
+            }
+            return left; // `left` points to the first bad version
+            
+        };
+    },
     missingNumber(nums) {//Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
     let max=(nums.length*(1+nums.length))/2;
     let sum=0;
