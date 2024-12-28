@@ -14,22 +14,43 @@ function TreeNode(val, left, right) {
     this.right = (right === undefined ? null : right)
 }
 
-export const prueba = {
-     solutionIsBad(isBadVersion) {
+function isBadVersion(version) {
+    return version >= 3;
+}
 
-        return function(n) {
+export const prueba = {
+    wordPattern(pattern, s) {
+        const words=s.split(" ");
+        if(pattern.length!==words.length) return false;
+        const map= new Map();
+        const set= new Set();
+        for(let i=0;i<pattern.length;i++){
+            if(map.has(pattern[i])){
+                if(map.get(pattern[i])!==words[i]) return false;
+            }else{
+                if(set.has(words[i])) return false;
+                map.set(pattern[i],words[i]);
+                set.add(words[i]);
+            }
+        }
+        return true;
+    },
+     solutionIsBad(n) {
+        
+         function eje(n) {
             let left = 1, right = n;
             while (left < right) {
                 const mid = Math.floor((left + right) / 2);
                 if (isBadVersion(mid)) {
                     right = mid; // Move to the left side
                 } else {
-                    left = mid + 1; // Move to the right side
+                    left = mid +1; // Move to the right side
                 }
             }
             return left; // `left` points to the first bad version
             
         };
+        return eje(n)
     },
     missingNumber(nums) {//Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
     let max=(nums.length*(1+nums.length))/2;
