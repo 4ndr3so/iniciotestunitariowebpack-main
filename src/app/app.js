@@ -19,6 +19,9 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+     canWinNim(n) {//292. Nim Game
+        return !(n%4==0)
+        },
     worldPattern2(pattern, s) {
         const words = s.split(" ");
         if (pattern.length !== words.length) return false;
