@@ -19,6 +19,21 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    worldPattern2(pattern, s) {
+        const words = s.split(" ");
+        if (pattern.length !== words.length) return false;
+        const map = new Map();
+        
+        for (let i = 0; i < pattern.length; i++) {
+            if (map.has(pattern[i])) {
+                if (map.get(pattern[i]) !== words[i]) return false;
+            } else {
+                if (Array.from(map.values()).includes(words[i])) return false;
+                map.set(pattern[i], words[i]);
+            }
+        }
+        return true;
+    },
     wordPattern(pattern, s) {
         const words=s.split(" ");
         if(pattern.length!==words.length) return false;
