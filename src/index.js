@@ -113,7 +113,7 @@ let num2Dup=[1,2,3,4,8,6,1,5,1]
 const intervals =[[15, 30], [5, 10], [3, 4]];
 let nums = [9,6,4,2,3,5,7,0,1];
 
-console.log(prueba.wordPattern("abba","dog cat cat dog"));
+console.log(prueba.generatePossibleNextMoves("++--"));
 //console.log(prueba.StrobogrammaticNum("106901"))
 /* console.log(prueba.isPowerOfTwo(8))
 let quee=prueba.myQueue()

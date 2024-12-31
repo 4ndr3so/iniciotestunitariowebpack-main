@@ -19,6 +19,16 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+     generatePossibleNextMoves(s) {
+        const results = [];
+        for (let i = 0; i < s.length - 1; i++) {
+            if (s[i] === '+' && s[i + 1] === '+') {
+                const newState = s.slice(0, i) + '--' + s.slice(i + 2);
+                results.push(newState);
+            }
+        }
+        return results;
+    },
      canWinNim(n) {//292. Nim Game
         return !(n%4==0)
         },
