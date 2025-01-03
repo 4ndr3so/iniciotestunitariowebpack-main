@@ -19,6 +19,18 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    isPowerOfThree2(n ) {//326. Power of Three
+        let x=3;
+        if (x <= 0 || n <= 1) return false;
+        let maxPowerOfN = 1;
+        while (maxPowerOfN <= Number.MAX_SAFE_INTEGER / n) {
+            maxPowerOfN *= n; // Find the largest power of n within safe limits
+        }
+        return maxPowerOfN % x === 0;
+    },
+    isPowerOfThree(n ) {//326. Power of Three
+        return n > 0 && 1162261467 % n === 0;
+    },
     rangeQueryInmutable2(nums) {
         class NumArray {
             
