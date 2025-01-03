@@ -19,8 +19,23 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
-    rangeQueryInmutable(nums, left, right) {
+    
+    rangeQueryInmutable(nums) {
+        class NumArray {
+            
+            constructor(nums) {
+                this.nums=nums;
+            }
         
+            sumRange(left, right) {
+                let sum=0;
+                for(let i=left;i<=right;i++){
+                    sum+=this.nums[i]
+                }
+                return sum
+            }
+        }
+        return new NumArray(nums);
     },
      generatePossibleNextMoves(s) {
         const results = [];
