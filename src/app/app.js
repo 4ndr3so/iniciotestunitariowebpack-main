@@ -19,6 +19,9 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    rangeQueryInmutable(nums, left, right) {
+        
+    },
      generatePossibleNextMoves(s) {
         const results = [];
         for (let i = 0; i < s.length - 1; i++) {
