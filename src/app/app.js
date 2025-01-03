@@ -19,6 +19,12 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    isPowerOfThree3(n ) {//326. Power of Three
+        let x=3;
+        if (x <= 0 || n <= 1) return false;
+        const logResult = Math.log(x) / Math.log(n);
+        return logResult % 1 === 0; // Check if logResult is an integer
+    },
     isPowerOfThree2(n ) {//326. Power of Three
         let x=3;
         if (x <= 0 || n <= 1) return false;
