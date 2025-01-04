@@ -19,6 +19,20 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    countBits2(n){
+        let result = new Array(n + 1).fill(0);
+        for (let i = 1; i <= n; i++) {
+            result[i] = result[i >> 1] + (i & 1);
+        }
+        return result;
+    },
+    countBits(n){
+        let result = new Array(n + 1).fill(0);
+        for (let i = 1; i <= n; i++) {
+            result[i] = result[i >> 1] + (i & 1);
+        }
+        return result;
+    },
     isPowerOfThree3(n ) {//326. Power of Three
         let x=3;
         if (x <= 0 || n <= 1) return false;
