@@ -19,6 +19,24 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+     countBitsNaive(n) {
+        const result = []; // To store the count of 1s for each number
+        
+        for (let i = 0; i <= n; i++) {
+            let count = 0;
+            let num = i;
+            
+            // Count the number of 1s in the binary representation of `num`
+            while (num > 0) {
+                count += num & 1; // Add 1 if the least significant bit is 1
+                num >>= 1;        // Right shift `num` to process the next bit
+            }
+            
+            result.push(count);
+        }
+        
+        return result;
+    },
     countBits2(n){
         let result = new Array(n + 1).fill(0);
         for (let i = 1; i <= n; i++) {
