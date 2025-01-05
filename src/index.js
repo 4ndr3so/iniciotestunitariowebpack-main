@@ -115,7 +115,7 @@ let nums = [9,6,4,2,3,5,7,0,1];
 //let inmu=prueba.rangeQueryInmutable([-2, 0, 3, -5, 2, -1])
 //console.log();
 //console.log(inmu.sumRange(2,5));
-console.log(prueba.countBitsNaive(6))
+console.log(prueba.reverseVowels("IceCreAm"))
 //console.log(prueba.StrobogrammaticNum("106901"))
 /* console.log(prueba.isPowerOfTwo(8))
 let quee=prueba.myQueue()

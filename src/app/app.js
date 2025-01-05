@@ -19,6 +19,59 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    reverseVowels2(s ) {
+        const vowels = new Set(['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'])
+        let resul =''
+        let start=0
+        let end = s.length -1
+        const sArray = s.split("")
+    
+        while(start<end){
+    
+            if(vowels.has(sArray[start])){
+                if(vowels.has(sArray[end])){
+                    const temp = sArray[start]
+                    sArray[start] = sArray[end]
+                    sArray[end] = temp
+                    start++
+                    end--
+                }else{
+                    end--
+                }
+            }else{
+                start++
+            }
+        }
+        return sArray.join('')
+        },
+    reverseVowels(s) {
+        const arr = s.split('');
+        let left = 0;
+        let right = arr.length - 1;
+    
+        while (left < right) {
+            // Move left pointer until a vowel is found
+            while (left < right && ! s[left].match(/[aeiou]/i)) {
+                left++;
+            }
+    
+            // Move right pointer until a vowel is found
+            while (left < right && ! s[right].match(/[aeiou]/i)) {
+                right--;
+            }
+    
+            // Swap the vowels
+            [arr[left], arr[right]] = [arr[right], arr[left]];
+    
+            // Move pointers
+            left++;
+            right--;
+        }
+    
+        return arr.join('');
+         
+    },
+
     isPowerOfFour(n) {
         if(n<1) return false
         while(n>1){
@@ -60,10 +113,12 @@ export const prueba = {
         return result;
     },
     isPowerOfThree3(n ) {//326. Power of Three
-        let x=3;
-        if (x <= 0 || n <= 1) return false;
-        const logResult = Math.log(x) / Math.log(n);
-        return logResult % 1 === 0; // Check if logResult is an integer
+        if (n <= 0) return false;
+        while (n > 1) {
+            if (n % 3 !== 0) return false;
+            n = n / 3;
+        }
+        return true;
     },
     isPowerOfThree2(n ) {//326. Power of Three
         let x=3;
