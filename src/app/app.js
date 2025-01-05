@@ -19,6 +19,14 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    isPowerOfFour(n) {
+        if(n<1) return false
+        while(n>1){
+            if(n%4!==0) return false
+            n=n/4
+        }
+        return true
+    },
      countBitsNaive(n) {
         const result = []; // To store the count of 1s for each number
         
