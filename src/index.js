@@ -115,7 +115,12 @@ let nums = [9,6,4,2,3,5,7,0,1];
 //let inmu=prueba.rangeQueryInmutable([-2, 0, 3, -5, 2, -1])
 //console.log();
 //console.log(inmu.sumRange(2,5));
-console.log(prueba.reverseVowels2("IceCreAm"))
+//console.log(prueba.reverseVowels2("IceCreAm"))
+const movingAverage = prueba.movingAverage(3);
+console.log(movingAverage.next(1)); // Output: 1.0
+console.log(movingAverage.next(10)); // Output: 5.5
+console.log(movingAverage.next(3)); // Output: 4.66667
+console.log(movingAverage.next(5)); // Output: 6.0
 //console.log(prueba.StrobogrammaticNum("106901"))
 /* console.log(prueba.isPowerOfTwo(8))
 let quee=prueba.myQueue()

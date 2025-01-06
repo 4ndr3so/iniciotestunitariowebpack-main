@@ -19,6 +19,32 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    movingAverage(size){
+        class MovingAverage {
+            constructor(size) {
+                this.size = size; // Maximum size of the window
+                this.queue = [];  // Queue to store the last k elements
+                this.sum = 0;     // Current sum of elements in the queue
+            }
+        
+            next(val) {
+                // Add new value to the sum and queue
+                this.queue.push(val);
+                this.sum += val;
+        
+                // If the queue exceeds the size, remove the oldest value
+                if (this.queue.length > this.size) {
+                    this.sum -= this.queue.shift();
+                }
+        
+                // Return the moving average
+                return this.sum / this.queue.length;
+            }
+        }
+        
+       return new MovingAverage(size);
+        
+    },
     reverseVowels2(s ) {
         const vowels = new Set(['a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'])
         let resul =''
