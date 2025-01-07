@@ -19,6 +19,19 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+     topKFrequent(nums, k){
+        let result = [];
+        let map = new Map();
+        for (let num of nums) {
+            map.set(num, (map.get(num) || 0) + 1);
+        }
+        const sortedNums = Array.from(map.keys()).sort((a, b) => map.get(b) - map.get(a));
+        for (let i = 0; i < k; i++) {
+            result.push(sortedNums[i]);
+        }
+        return result;
+        
+    },
     movingAverage(size){
         class MovingAverage {
             constructor(size) {
