@@ -19,6 +19,51 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    intersection(nums1, nums2) {
+        let result = [];
+        let s1= new Set(nums1);
+        let s2= new Set(nums2);
+        for(let num of s1){
+            if(s2.has(num)){
+                result.push(num);
+            }
+        }
+        return result;
+    },
+    tictactorToe(board) {
+        class TicTacToe {
+            constructor(n) {
+                this.n = n;
+                this.rows = Array(n).fill(0);      // Track row counts
+                this.cols = Array(n).fill(0);      // Track column counts
+                this.diag = 0;                     // Main diagonal count
+                this.antiDiag = 0;                 // Anti-diagonal count
+            }
+        
+            move(row, col, player) {
+                const toAdd = player === 1 ? 1 : -1;
+        
+                // Update row and column counters
+                this.rows[row] += toAdd;
+                this.cols[col] += toAdd;
+        
+                // Update diagonal counters if applicable
+                if (row === col) this.diag += toAdd;          // Main diagonal
+                if (row + col === this.n - 1) this.antiDiag += toAdd; // Anti-diagonal
+        
+                // Check if any counter reaches n or -n
+                if (Math.abs(this.rows[row]) === this.n ||
+                    Math.abs(this.cols[col]) === this.n ||
+                    Math.abs(this.diag) === this.n ||
+                    Math.abs(this.antiDiag) === this.n) {
+                    return player; // Return the winner
+                }
+        
+                return 0; // No winner yet
+            }
+        }
+        return new TicTacToe(board);        
+    },
      topKFrequent(nums, k){
         let result = [];
         let map = new Map();
