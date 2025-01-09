@@ -19,6 +19,51 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+     numberOfPatterns(m, n) {
+        // Precompute skip requirements between points
+        const skip = Array.from({ length: 10 }, () => Array(10).fill(0));
+        skip[1][3] = skip[3][1] = 2;
+        skip[1][7] = skip[7][1] = 4;
+        skip[3][9] = skip[9][3] = 6;
+        skip[7][9] = skip[9][7] = 8;
+        skip[1][9] = skip[9][1] = skip[3][7] = skip[7][3] = 5;
+        skip[2][8] = skip[8][2] = skip[4][6] = skip[6][4] = 5;
+    
+        console.log(skip)
+        const visited = Array(10).fill(false);
+    
+        // Backtracking function
+        function dfs(curr, remaining) {
+            if (remaining < 0) return 0; // Too few points
+            if (remaining === 0) return 1; // Valid pattern found
+    
+            visited[curr] = true;
+            let count = 0;
+    
+            for (let next = 1; next <= 9; next++) {
+                // If the next point is not visited and either:
+                // - No skip is required or the skipped point has already been visited
+                if (!visited[next] && (skip[curr][next] === 0 || visited[skip[curr][next]])) {
+                    count += dfs(next, remaining - 1);
+                }
+            }
+    
+            visited[curr] = false; // Backtrack
+            return count;
+        }
+    
+        let totalPatterns = 0;
+    
+        for (let i = m; i <= n; i++) {
+            // Start patterns from 1, 2, 5 and multiply symmetric cases
+            totalPatterns += dfs(1, i - 1) * 4; // Symmetric cases: 1, 3, 7, 9
+            totalPatterns += dfs(2, i - 1) * 4; // Symmetric cases: 2, 4, 6, 8
+            totalPatterns += dfs(5, i - 1);     // Unique case: 5
+        }
+    
+        return totalPatterns;
+    },
+    
     intersect(nums1, nums2) {
         let result =[];
         for(let num of nums1){

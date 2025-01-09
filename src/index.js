@@ -115,7 +115,9 @@ let nums = [9,6,4,2,3,5,7,0,1];
 //let inmu=prueba.rangeQueryInmutable([-2, 0, 3, -5, 2, -1])
 //console.log();
 //console.log(inmu.sumRange(2,5));
-console.log(prueba.intersect([1,2,2,1],[2,2]))
+//console.log(prueba.intersect([1,2,2,1],[2,2]))
+console.log(prueba.numberOfPatterns(1, 1)); // Output: 9
+
 //console.log(prueba.reverseVowels2("IceCreAm"))
 /* const movingAverage = prueba.movingAverage(3);
 console.log(movingAverage.next(1)); // Output: 1.0
