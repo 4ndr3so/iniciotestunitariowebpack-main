@@ -19,6 +19,16 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    intersect(nums1, nums2) {
+        let result =[];
+        for(let num of nums1){
+            if(nums2.includes(num)){
+                result.push(num);
+                nums2.splice(nums2.indexOf(num),1);
+            }
+        }
+        return result;
+    },
     intersection(nums1, nums2) {
         let result = [];
         let s1= new Set(nums1);
