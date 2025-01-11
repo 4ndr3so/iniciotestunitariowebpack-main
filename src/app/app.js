@@ -36,13 +36,23 @@ export const prueba = {
         return false;
     },
     isPerfectSquare(num) {
-        function recurs(num,res){
-            if(num*num < res && (num+1)*(num+1) > res) return false
-            if(num*num==res) return true
-            num=num/2;
-            recurs(num,res)
+        function isPerfectSquare(num, low = 1, high = num) {
+            if (num < 1) return false; // Negative numbers and 0 are not perfect squares.
+        
+            if (low > high) return false; // Base case: no perfect square found.
+        
+            const mid = Math.floor((low + high) / 2);
+            const square = mid * mid;
+        
+            if (square === num) {
+                return true; // Found the perfect square.
+            } else if (square > num) {
+                return isPerfectSquare(num, low, mid - 1); // Recur to the left half.
+            } else {
+                return isPerfectSquare(num, mid + 1, high); // Recur to the right half.
+            }
         }
-        return recurs(num/2,num)
+        return isPerfectSquare(num);
     },
      numberOfPatterns(m, n) {
         // Precompute skip requirements between points

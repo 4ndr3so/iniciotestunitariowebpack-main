@@ -117,7 +117,7 @@ let nums = [9,6,4,2,3,5,7,0,1];
 //console.log(inmu.sumRange(2,5));
 //console.log(prueba.intersect([1,2,2,1],[2,2]))
 //console.log(prueba.isAnagram("anagram","nagaram"))
-console.log(prueba.isPerfectSquare2(100)); // Output: 9
+console.log(prueba.isPerfectSquare(100)); // Output: 9
 //console.log(prueba.numberOfPatterns(4, 5)); // Output: 9
 
 //console.log(prueba.reverseVowels2("IceCreAm"))
