@@ -19,6 +19,25 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+  guessNumber(n) {
+    let left=0;
+    let right=n;
+
+    while(left<=right){
+        const mid = Math.floor((left + right) / 2);
+        const result = guess(mid);
+
+        if (result === 0) {
+            return mid; // Found the number
+        } else if (result === -1) {
+            right = mid - 1; // The number is lower
+        } else {
+            left = mid + 1; // The number is higher
+        }
+    }
+
+    return -1; // Should not reach here if input is valid
+},
     isPerfectSquare2(num) {
         let left = 1;
         let right = num;
