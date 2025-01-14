@@ -19,6 +19,22 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    firstUniqChar(s) {
+        const map = new Set();
+        for (let i = 0; i < s.length; i++) {
+            if (map.has(s[i])) {
+                map.delete(s[i]);
+            } else {
+                map.add(s[i]);
+            }
+        }
+        for (let i = 0; i < s.length; i++) {
+            if (map.has(s[i])) {
+                return i;
+            }
+        }
+        return -1;
+    },
     canConstruct(ransomNote, magazine) {
         if(ransomNote.length>magazine.length) return false;
         for(let i=0;i<ransomNote.length;i++){
