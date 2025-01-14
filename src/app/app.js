@@ -19,6 +19,16 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    canConstruct(ransomNote, magazine) {
+        if(ransomNote.length>magazine.length) return false;
+        for(let i=0;i<ransomNote.length;i++){
+            if(!magazine.includes(ransomNote[i])){
+                return false;
+            }
+            magazine=magazine.replace(ransomNote[i],"");
+        }
+        return true;
+    },
   guessNumber(n) {
     let left=0;
     let right=n;
