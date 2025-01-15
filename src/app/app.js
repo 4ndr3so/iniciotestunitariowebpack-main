@@ -19,6 +19,19 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    findTheDifference2(s, t) {
+        let asciiValueOfT = 0;
+        let asciiValueOfS = 0;
+        
+        for (let i = 0; i < t.length; i++) {
+            if (i < s.length) {
+                asciiValueOfS += s.charCodeAt(i);
+            }
+            asciiValueOfT += t.charCodeAt(i);
+        }
+    
+        return String.fromCharCode(asciiValueOfT - asciiValueOfS)
+    },
     findTheDifference(s, t) {
         for (let i = 0; i < s.length; i++) {
             t = t.replace(s[i], '');
