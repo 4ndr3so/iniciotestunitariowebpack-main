@@ -19,6 +19,17 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    
+    isSubsequence(s, t) {
+        for(let i=0;i<s.length;i++){
+            if(!t.includes(s[i])){
+                return false;
+            }
+            t=t.slice(t.indexOf(s[i])+1)
+        }
+        return true;
+
+    },
     findTheDifference2(s, t) {
         let asciiValueOfT = 0;
         let asciiValueOfS = 0;
@@ -34,7 +45,11 @@ export const prueba = {
     },
     findTheDifference(s, t) {
         for (let i = 0; i < s.length; i++) {
-            t = t.replace(s[i], '');
+            if(t.includes(s[i])){
+                t=t.replace(s[i],"")
+            }else{
+                return s[i]
+            }
         }
         return t;
     },
