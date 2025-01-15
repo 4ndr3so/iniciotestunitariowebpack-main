@@ -19,6 +19,12 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    findTheDifference(s, t) {
+        for (let i = 0; i < s.length; i++) {
+            t = t.replace(s[i], '');
+        }
+        return t;
+    },
     firstUniqChar2(s) {
         const map = new Map();
         for (let i = 0; i < s.length; i++) {
