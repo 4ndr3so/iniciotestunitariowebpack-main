@@ -19,6 +19,38 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    readBinaryWatch(turnedOn) {
+    if(turnedOn>7) return []
+    let result = [];
+    let hours = [8, 4, 2, 1];
+    let minutes = [32, 16, 8, 4, 2, 1];
+
+    for (let i = 0; i <= turnedOn; i++) {
+        let possibleHours = generateDigits(hours, i, 0, 11);
+        let possibleMinutes = generateDigits(minutes, turnedOn - i, 0, 59);
+        for (let hour of possibleHours) {
+            for (let minute of possibleMinutes) {
+                result.push(`${hour}:${minute < 10 ? '0' + minute : minute}`);
+            }
+        }
+    }
+    function generateDigits(){
+        let result = [];
+        function backtrack(start, count, sum, limit) {
+            if (count === 0) {
+                result.push(sum);
+                return;
+            }
+            for (let i = start; i < limit; i++) {
+                backtrack(i + 1, count - 1, sum + digits[i], limit);
+            }
+        }
+        backtrack(0, count, 0, digits.length);
+        return result;
+    }
+
+return result;
+    },
     isSubsequence2(s, t) {
         let i = 0;
         let j = 0;
