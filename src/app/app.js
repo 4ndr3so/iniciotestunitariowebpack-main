@@ -19,37 +19,86 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    sumOfLeftLeaves(root) {
+        let result=0;
+        function ldt(root){
+            if(root==null) return null;
+            if(root.left!=null && root.left.left==null && root.left.right==null){
+                result+=root.left.val;
+            }
+            ldt(root.left);
+            ldt(root.right);
+            return result;
+        }
+        return ldt(root)
+    },
+    sumOfLeftLeaves2(root) {
+        let sum = 0;
+        function dfs(node, isLeft) {
+            if (!node) return;
+            if (!node.left && !node.right && isLeft) {
+                sum += node.val;
+            }
+            dfs(node.left, true);
+            dfs(node.right, false);
+        }
+        dfs(root, false);
+        return sum;
+    },
+    readBinaryWatch2(turnedOn) {
+        const results = [];
+    
+        // Loop through all possible hours (0-11) and minutes (0-59)
+        for (let hour = 0; hour < 12; hour++) {
+            for (let minute = 0; minute < 60; minute++) {
+                // Count the total number of 1s in hour and minute
+                const totalBits = countBits(hour) + countBits(minute);
+                
+                // If the number of 1s matches `turnedOn`, add the time
+                if (totalBits === turnedOn) {
+                    // Format the time as "H:MM"
+                    results.push(`${hour}:${minute.toString().padStart(2, '0')}`);
+                }
+            }
+        }
+                // Helper function to count the number of 1s in a binary representation
+        function countBits(num) {
+            return num.toString(2).split('1').length - 1;
+        }
+
+        return results;
+    },
     readBinaryWatch(turnedOn) {
-    if(turnedOn>7) return []
-    let result = [];
-    let hours = [8, 4, 2, 1];
-    let minutes = [32, 16, 8, 4, 2, 1];
-
-    for (let i = 0; i <= turnedOn; i++) {
-        let possibleHours = generateDigits(hours, i, 0, 11);
-        let possibleMinutes = generateDigits(minutes, turnedOn - i, 0, 59);
-        for (let hour of possibleHours) {
-            for (let minute of possibleMinutes) {
-                result.push(`${hour}:${minute < 10 ? '0' + minute : minute}`);
-            }
-        }
-    }
-    function generateDigits(){
+        if(turnedOn>7) return []
         let result = [];
-        function backtrack(start, count, sum, limit) {
-            if (count === 0) {
-                result.push(sum);
-                return;
-            }
-            for (let i = start; i < limit; i++) {
-                backtrack(i + 1, count - 1, sum + digits[i], limit);
+        let hours = [8, 4, 2, 1];
+        let minutes = [32, 16, 8, 4, 2, 1];
+    
+        for (let i = 0; i <= turnedOn; i++) {
+            let possibleHours = generateDigits(hours, i, 0, 11);
+            let possibleMinutes = generateDigits(minutes, turnedOn - i, 0, 59);
+            for (let hour of possibleHours) {
+                for (let minute of possibleMinutes) {
+                    result.push(`${hour}:${minute < 10 ? '0' + minute : minute}`);
+                }
             }
         }
-        backtrack(0, count, 0, digits.length);
-        return result;
-    }
-
-return result;
+        function generateDigits(digits, count, start, limit) {
+            let result = [];
+            function backtrack(start, count, sum, limit) {
+                if (count === 0) {
+                    result.push(sum);
+                    return;
+                }
+                for (let i = start; i < limit; i++) {
+                    backtrack(i + 1, count - 1, sum + digits[i], limit);
+                }
+            }
+            backtrack(0, count, 0, digits.length);
+            return result;
+        }
+    
+    return result;
     },
     isSubsequence2(s, t) {
         let i = 0;

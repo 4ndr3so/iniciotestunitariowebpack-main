@@ -75,6 +75,7 @@ function ListNode(val, next) {
 let tree1=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new Treenode(3, new Treenode(6), new Treenode(7)))
 let tree2=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new Treenode(3, new Treenode(6), new Treenode(7)))
 let tree3=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new Treenode(3, new Treenode(6)))
+let treeleftea=new Treenode(3, new Treenode(9),new Treenode(20,new Treenode(15),new Treenode(7)))
 let treeLeaft=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new Treenode(3))
 let treebalanced=new Treenode(3, new Treenode(9), new Treenode(20, new Treenode(15),new Treenode(7,null,null)))
 
@@ -117,7 +118,8 @@ let nums = [9,6,4,2,3,5,7,0,1];
 //console.log(inmu.sumRange(2,5));
 //console.log(prueba.intersect([1,2,2,1],[2,2]))
 //console.log(prueba.isAnagram("anagram","nagaram"))
-console.log(prueba.isSubsequence("cab","babac")); // Output: 9
+console.log(prueba.sumOfLeftLeaves2(treeleftea))
+/* console.log(prueba.readBinaryWatch2(1)); // Output: 9 */
 //console.log(prueba.numberOfPatterns(4, 5)); // Output: 9
 
 //console.log(prueba.reverseVowels2("IceCreAm"))
