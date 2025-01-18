@@ -19,6 +19,16 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    toHex(num) {
+        if (num === 0) return '0';
+        const hex = '0123456789abcdef';
+        let result = '';
+        while (num !== 0) {
+            result = hex[num & 15] + result;
+            num >>>= 4;
+        }
+        return result;
+    },
     sumOfLeftLeaves(root) {
         let result=0;
         function ldt(root){
