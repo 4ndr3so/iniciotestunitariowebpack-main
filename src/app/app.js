@@ -19,6 +19,27 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    longestPalindrome(s) {
+        let result=0;
+        let map=new Map();
+        for(let i=0;i<s.length;i++){
+            if(map.has(s[i])){
+                map.set(s[i],map.get(s[i])+1);
+            }else{
+                map.set(s[i],1);
+            }
+        }
+        let odd=false;
+        for(let value of map.values()){
+            if(value%2===0){
+                result+=value;
+            }else{
+                result+=value-1;
+                odd=true;
+            }
+        }
+        return odd?result+1:result;
+    },
     toHex(num) {
         if (num === 0) return '0';
         const hex = '0123456789abcdef';
