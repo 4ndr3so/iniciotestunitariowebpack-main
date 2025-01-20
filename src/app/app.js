@@ -19,6 +19,15 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    thirdMax(nums) {
+        let result= new Set(nums);
+        let arr=Array.from(result);
+        arr.sort((a,b)=>b-a);
+        if(arr.length<3){
+            return arr[0];
+        }
+        return arr[2];
+    },
     fizzBuzz(n){
         let result=[];
         for(let i=1;i<=n;i++){
