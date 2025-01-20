@@ -119,8 +119,9 @@ let nums = [9,6,4,2,3,5,7,0,1];
 //console.log(prueba.intersect([1,2,2,1],[2,2]))
 //console.log(prueba.isAnagram("anagram","nagaram"))
 //console.log(prueba.toHex(34))
-console.log(prueba.longestPalindrome("aaabccccdd"))
-//console.log(prueba.sumOfLeftLeaves2(treeleftea))
+console.log(prueba.fizzBuzz(15))
+/* console.log(prueba.longestPalindrome("aaabccccdd"))
+ *///console.log(prueba.sumOfLeftLeaves2(treeleftea))
 /* console.log(prueba.readBinaryWatch2(1)); // Output: 9 */
 //console.log(prueba.numberOfPatterns(4, 5)); // Output: 9
 
