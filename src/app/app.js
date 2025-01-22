@@ -19,6 +19,17 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    wordSqare(words) {
+
+        for(let i=0;i<words.length;i++){
+            for(let j=0;j<words[i].length;j++){
+                if(words[i][j]!==words[j][i]){
+                    return false;
+                }
+            }
+        }
+        return true;
+    },
     addStrings(num1, num2) {
         let result = '';
         let carry = 0;

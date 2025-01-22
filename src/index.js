@@ -119,8 +119,9 @@ let nums = [9,6,4,2,3,5,7,0,1];
 //console.log(prueba.intersect([1,2,2,1],[2,2]))
 //console.log(prueba.isAnagram("anagram","nagaram"))
 //console.log(prueba.toHex(34))
-console.log(prueba.thirdMax([2,2,3,1]))
-console.log(prueba.addStrings("101","1203"))
+console.log(prueba.wordSqare(["ball", "area", "read", "lady"]))
+ /* console.log(prueba.thirdMax([2,2,3,1]))
+console.log(prueba.addStrings("101","1203")) */
 //console.log(prueba.fizzBuzz(15))
 /* console.log(prueba.longestPalindrome("aaabccccdd"))
  *///console.log(prueba.sumOfLeftLeaves2(treeleftea))
