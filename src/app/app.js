@@ -19,6 +19,19 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    countSegments(s) {
+      let count = 0;
+      let inWord = false;
+      for(let i=0;i<s.length;i++){
+          if(s[i]!==' ' && !inWord){
+              inWord=true;
+              count++;
+          }else if(s[i]===' '){
+              inWord=false;
+          }
+      }
+      return count;
+    },
     wordSqare(words) {
 
         for(let i=0;i<words.length;i++){
