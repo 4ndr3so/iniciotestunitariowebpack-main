@@ -19,6 +19,38 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    findDisappearedNumbers(nums) {
+    let result=[];
+    for(let i=1;i<=nums.length;i++){
+        
+       if(!nums.includes(i)){
+            //  nums.delete(i)
+           result.push(i) 
+       }
+    }
+    return result;    
+    },
+    arrangeCoins2(n){
+        let rows = 0; // Number of complete rows
+        let coinsUsed = 0; // Total coins used so far
+    while (n >= coinsUsed + 1) {
+        rows++; // Increment the row count
+        coinsUsed++; // Increment coins needed for the current row
+        n -= coinsUsed; // Subtract coins used for this row
+    }
+
+    return rows;
+    },  
+    arrangeCoins(n) {
+        let result = 0; 
+        let i = 1;
+        while (n >= i) {
+            n -= i;
+            i++;
+            result++;
+        }
+        return result;
+    },
     countSegments(s) {
       let count = 0;
       let inWord = false;
