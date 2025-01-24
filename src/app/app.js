@@ -19,6 +19,46 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    findContentChildren2(g, s) {
+        let gs = g.sort((a, b) => a - b);
+        let ss= s.sort((a, b) => a - b);
+        let result=0;
+        let i=0;
+        let j=0;
+        while(i<gs.length && j<ss.length){
+            if(gs[i]<=ss[j]){
+                result++;
+                i++;
+            }
+            j++;
+        }
+        return result;
+    },
+    findContentChildren(g, s) {//brute force
+        let gs = g.sort((a, b) => a - b);
+        let ss= s.sort((a, b) => a - b);
+        let result=0;
+        for(let i=0;i<gs.length;i++){
+            for(let j=0;j<ss.length;j++){
+                if(gs[i]<=ss[j]){
+                    result++;
+                    ss.splice(j,1);
+                    break;
+                }
+            }
+        }
+        return result;
+    },
+    findDisappearedNumbers2(nums){
+        let result=[];
+        let set=new Set(nums);
+        for(let i=1;i<=nums.length;i++){
+            if(!set.has(i)){
+                result.push(i);
+            }
+        }
+        return result;
+    },
     findDisappearedNumbers(nums) {
     let result=[];
     for(let i=1;i<=nums.length;i++){
