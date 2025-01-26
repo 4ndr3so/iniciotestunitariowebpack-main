@@ -19,6 +19,24 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    repeatedSubstringPattern2(s) {
+        const doubledString = (s + s).slice(1, -1);
+        return doubledString.includes(s);
+    },
+    repeatedSubstringPattern(s) {
+    let size=s.length;
+    let i=1;
+    while(size>1 && (i<=(size/2))){
+        let sub=s.slice(0,i);
+        let count=s.replaceAll(sub,"");
+        if(count===""){
+            return true;
+        }
+        i++;
+
+    }
+    return false;
+    },
     findContentChildren2(g, s) {
         let gs = g.sort((a, b) => a - b);
         let ss= s.sort((a, b) => a - b);
