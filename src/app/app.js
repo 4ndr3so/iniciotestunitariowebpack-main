@@ -19,6 +19,27 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    islandPerimeter(grid) {
+        let perimeter = 0;
+    
+        for (let i = 0; i < grid.length; i++) {
+            for (let j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] === 1) {
+                    perimeter += 4; // Initialize perimeter of a single land cell
+    
+                    // Subtract 2 for each adjacent land cell
+                    if (i > 0 && grid[i - 1][j] === 1) {
+                        perimeter -= 2;
+                    }
+                    if (j > 0 && grid[i][j - 1] === 1) {
+                        perimeter -= 2;
+                    }
+                }
+            }
+        }
+    
+        return perimeter;
+    },
     hammingDistance2(x, y) {
         let result = 0;
         let n=x^y;
