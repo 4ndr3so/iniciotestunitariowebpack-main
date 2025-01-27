@@ -19,6 +19,23 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    hammingDistance2(x, y) {
+        let result = 0;
+        let n=x^y;
+        while(n>0){
+            result+=n&1;
+            n>>=1;
+        }
+        return result;
+    },
+    hammingDistance(x, y) {
+    let result = 0;
+    let sizex = x.toString(2);
+    let sizey = y.toString(2);
+    let max = Math.max(sizex.length, sizey.length);
+    let min = Math.min(sizex.length, sizey.length);
+    return max - min;
+    },
     repeatedSubstringPattern2(s) {
         const doubledString = (s + s).slice(1, -1);
         return doubledString.includes(s);
