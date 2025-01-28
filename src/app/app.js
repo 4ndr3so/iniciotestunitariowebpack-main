@@ -19,6 +19,20 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    findComplement2(num) {
+        let mask = num.toString(2);
+        let result = '';
+        for (let i = 0; i < mask.length; i++) {
+            result += mask[i] === '0' ? '1' : '0';
+        }
+
+        return parseInt(result, 2);
+    },
+    findComplement(num) {
+        let mask = num.String(2).replace(/0/g, '1').replace(/1/g, '0');
+
+        return parseInt(mask, 2) & num;
+    },
     islandPerimeter(grid) {
         let perimeter = 0;
     
