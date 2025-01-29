@@ -19,6 +19,24 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    licenseKeyFormatting(s , k) {
+        let cleaned = s.replace(/-/g, "").toUpperCase();
+    
+        let firstGroupSize = cleaned.length % k;
+        let result = [];
+    
+        // Add first group (if it exists)
+        if (firstGroupSize > 0) {
+            result.push(cleaned.substring(0, firstGroupSize));
+        }
+    
+        // Add remaining groups of size k
+        for (let i = firstGroupSize; i < cleaned.length; i += k) {
+            result.push(cleaned.substring(i, i + k));
+        }
+    
+        return result.join("-");
+    },
     findComplement2(num) {
         let mask = num.toString(2);
         let result = '';
