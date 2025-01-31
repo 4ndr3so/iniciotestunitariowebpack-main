@@ -19,6 +19,29 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    
+    constructRectangle(area) {
+        let width = Math.floor(Math.sqrt(area));
+        while (area % width !== 0) {
+            width--;
+        }
+        return [area / width, width];
+        
+
+    },
+    findMaxConsecutiveOnes(nums) {
+        let sum=0;
+        let max=0;
+        for(let i=0;i<nums.length;i++){
+            if(nums[i]===1){
+                sum++;
+            }else{
+                max=Math.max(max,sum);
+                sum=0;
+            }
+        }
+        return Math.max(max,sum);
+    },
     licenseKeyFormatting(s , k) {
         let cleaned = s.replace(/-/g, "").toUpperCase();
     
