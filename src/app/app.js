@@ -19,7 +19,34 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
-    
+    nextGreaterElement(nums1, nums2) {
+        let result = [];
+        for(let i=0;i<nums1.length;i++){
+            let index=nums2.indexOf(nums1[i]);
+            let next=-1;
+            for(let j=index+1;j<nums2.length;j++){
+                if(nums2[j]>nums1[i]){
+                    next=nums2[j];
+                    break;
+                }
+            }
+            result.push(next);
+        }
+        return result;
+    },
+    findPoisonedDuration(timeSeries, duration) {
+        let apunt=timeSeries[0]+(duration-1);
+        let total=duration;
+        for(let i=1;i<timeSeries.length;i++){
+            if(timeSeries[i]<=apunt){
+                total+=timeSeries[i]+duration-1-apunt;
+            }else{
+                total+=duration;
+            }
+            apunt=timeSeries[i]+duration-1;
+        }
+        return total;
+    },
     constructRectangle(area) {
         let width = Math.floor(Math.sqrt(area));
         while (area % width !== 0) {
