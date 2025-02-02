@@ -19,6 +19,38 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    findWords(words) {
+        let firstLet="";
+        let secondLet="";
+        let result=[];
+        let row1="qwertyuiop";
+        let row2="asdfghjkl";
+        let row3="zxcvbnm";
+        for(let i=0;i<words.length;i++){
+            let word=words[i].toLowerCase();
+            if(word.length===1){
+                result.push(words[i]);
+                continue;
+            }
+            firstLet=row1.includes(word[0])?"row1":row2.includes(word[0])?"row2":"row3";
+            for(let j=1;j<word.length;j++){
+                if(row1.includes(word[j])){
+                    secondLet="row1";
+                }else if(row2.includes(word[j])){
+                    secondLet="row2";
+                }else if(row3.includes(word[j])){
+                    secondLet="row3";
+                }
+                if(firstLet!==secondLet){
+                    break;
+                }
+            }
+            if(firstLet===secondLet){
+                result.push(words[i]);
+            }
+        }
+        return result;
+    },
     nextGreaterElement(nums1, nums2) {
         let result = [];
         for(let i=0;i<nums1.length;i++){
