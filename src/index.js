@@ -121,7 +121,7 @@ let nums = [9,6,4,2,3,5,7,0,1];
 //console.log(prueba.toHex(34))
 //console.log(prueba.findContentChildren([10,9,8,7],[5,6,7,8]))
 //console.log(prueba.repeatedSubstringPattern2("abcabcabcabc"))
-console.log(prueba.findWords(["qwee"]))
+console.log(prueba.findWords2(["qwee"]))
 //console.log(prueba.findPoisonedDuration([1,4],2))
 //console.log(prueba.constructRectangle(8))
 //console.log(prueba.findMaxConsecutiveOnes([1,1,0,1,1,1]))

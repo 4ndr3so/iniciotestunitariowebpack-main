@@ -19,6 +19,37 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    findMode(root) {
+    let result=new Map();
+    let max=0;
+    let arr=[];
+
+    function dfs(node){
+        if(node==null) return null;
+        dfs(node.left);
+        dfs(node.right);
+        result.set(node.val,(result.get(node.val)||0)+1);
+        max=Math.max(max,result.get(node.val));
+    }
+    dfs(root);
+    for(let [key,value] of result){
+        if(value==max){
+            arr.push(key);
+        }
+    }
+    return arr;
+    },
+    findWords2(words) {
+        const rows = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'];
+        const result = [];
+        for (const word of words) {
+            const row = rows.find(row => row.includes(word[0].toLowerCase()));
+            if (word.slice(1).split('').every(char => row.includes(char.toLowerCase()))) {
+                result.push(word);
+            }
+        }
+        return result;
+    },
     findWords(words) {
         let firstLet="";
         let secondLet="";
