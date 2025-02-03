@@ -19,6 +19,50 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    convertToBase7(num) {
+    let result="";
+    let negative=false;
+    if(num===0) return "0";
+    if(num<0){
+        negative=true;
+        num=Math.abs(num);
+    }
+    while(num>0){
+        result=num%7+result;
+        num=Math.floor(num/7);
+    }
+    return negative?"-"+result:result;
+
+    },
+    findMode2(root){
+        let result = []
+        let count = 1
+        let maxCount = 0
+        let pre = null
+        function inorder(node) {
+            if (!node) return
+            inorder(node.left)
+            // 
+            if (pre && node.val === pre.val) {
+                count++
+            } else {
+                count = 1
+            }
+            if (count > maxCount) {
+                maxCount = count
+                result = []
+                result.push(node.val)
+            }else if (count === maxCount) {
+                result.push(node.val)
+            }
+            pre = node
+            inorder(node.right)
+        }
+    
+        inorder(root)
+        return result
+    
+    },
     findMode(root) {
     let result=new Map();
     let max=0;

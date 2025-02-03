@@ -78,6 +78,8 @@ let tree3=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new
 let treeleftea=new Treenode(3, new Treenode(9),new Treenode(20,new Treenode(15),new Treenode(7)))
 let treeLeaft=new Treenode(1, new Treenode(2, new Treenode(4), new Treenode(5)), new Treenode(3))
 let treebalanced=new Treenode(3, new Treenode(9), new Treenode(20, new Treenode(15),new Treenode(7,null,null)))
+let tremode= new Treenode(1, new Treenode(2), new Treenode(2,new Treenode(2,null,new Treenode(3))))
+let tremode2= new Treenode(1, null, new Treenode(2,new Treenode(2,null,new Treenode(3))))
 
 let list5=new Treenode(4, new Treenode(2, new Treenode(1),new Treenode(3)),new Treenode(7,new Treenode(6),new Treenode(9)))//5
 
@@ -121,7 +123,9 @@ let nums = [9,6,4,2,3,5,7,0,1];
 //console.log(prueba.toHex(34))
 //console.log(prueba.findContentChildren([10,9,8,7],[5,6,7,8]))
 //console.log(prueba.repeatedSubstringPattern2("abcabcabcabc"))
-console.log(prueba.findWords2(["qwee"]))
+console.log(prueba.convertToBase7(77))
+//console.log(prueba.findMode2(tremode2))
+//console.log(prueba.findWords2(["qwee"]))
 //console.log(prueba.findPoisonedDuration([1,4],2))
 //console.log(prueba.constructRectangle(8))
 //console.log(prueba.findMaxConsecutiveOnes([1,1,0,1,1,1]))
