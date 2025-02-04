@@ -19,6 +19,20 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    checkPerfectNumber(num) {
+        let result=false;
+        if(num<2) return false;
+        let sum=1;
+        for(let i=2;i<=Math.sqrt(num);i++){
+            if(num%i===0){
+                sum+=i;
+                if(i!==num/i){
+                    sum+=num/i;
+                }
+            }
+        }
+        return sum===num;
+    },
     findRelativeRanks2(score){
         let medals = ["Gold Medal", "Silver Medal", "Bronze Medal"];
         let pointer = 0;
