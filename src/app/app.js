@@ -19,6 +19,35 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    findRelativeRanks2(score){
+        let medals = ["Gold Medal", "Silver Medal", "Bronze Medal"];
+        let pointer = 0;
+        let result = [];
+        for (let i = 0; i < score.length; i++) {
+            let max = Math.max(...score);
+            let index = score.indexOf(max);
+            if (pointer < 3) {
+                result[index] = medals[pointer];
+            } else {
+                result[index] = (pointer + 1).toString();
+            }
+            pointer++;
+            score[index] = -1;
+        }
+        return result;
+    },
+    findRelativeRanks(score) {
+        let medals = ["Gold Medal", "Silver Medal", "Bronze Medal"];
+        let sorted = [...score].sort((a, b) => b - a);
+        let map = new Map();
+        for (let i = 0; i < sorted.length; i++) {
+            map.set(sorted[i], i + 1);
+        }
+        return score.map((s, i) => (map.get(s) <= 3 ? medals[map.get(s) - 1] : map.get(s).toString()));
+
+       
+
+        },
     convertToBase7(num) {
     let result="";
     let negative=false;
