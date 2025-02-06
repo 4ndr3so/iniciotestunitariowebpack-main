@@ -19,6 +19,42 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    minDiffInBST(root) {
+        let result=Infinity;
+        let prev=null;
+       function tbs(root){
+            if(root==null) return;
+            tbs(root.left);
+            if(prev!=null){
+                result=Math.min(result,root.val-prev);
+            }
+            prev=root.val;
+            tbs(root.right);
+        }
+        tbs(root);
+        return result;
+    },
+    findLUSlength(a, b) {
+        if (a === b) return -1;
+        return Math.max(a.length, b.length);
+    },
+    findLUSlength2(a, b) {
+    if(a===b) return -1;
+    let copy=a;
+    for(let i=a.length;i>=0;i--){
+        if(b.includes(a)) return b.length - a.length;
+        a.slice(0,i);
+    }
+    if(a.length<b.length) {
+        return b.length;
+    }else{
+        return a.length;
+    }
+    },
+    detectCapitalUse(word) {
+        let reg= /^[A-Z]*$|^[a-z]*$|^[A-Z][a-z]*$/;
+        return reg.test(word);
+    },
     checkPerfectNumber(num) {
         let result=false;
         if(num<2) return false;
