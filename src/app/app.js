@@ -19,6 +19,14 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    reverseStr(s, k) {
+        let result="";
+        for(let i=0;i<s.length;i+=2*k){
+            result+=s.slice(i,i+k).split("").reverse().join("")+s.slice(i+k,i+2*k);
+        }
+        return result;
+
+    },
     minDiffInBST(root) {
         let result=Infinity;
         let prev=null;

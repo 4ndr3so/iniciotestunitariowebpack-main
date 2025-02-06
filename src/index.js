@@ -125,7 +125,9 @@ let nums = [9,6,4,2,3,5,7,0,1];
 //console.log(prueba.repeatedSubstringPattern2("abcabcabcabc"))
 //console.log(prueba.convertToBase7(77))
 //console.log(prueba.findRelativeRanks2([10,3,8,9,4]))
-console.log(prueba.findLUSlength("aba","cdc"))
+console.log(prueba.minDiffInBST(tree3))
+//console.log(prueba.findLUSlength("aba","cdc"))
+
 //console.log(prueba.checkPerfectNumber(28))
 //console.log(prueba.findMode2(tremode2))
 //console.log(prueba.findWords2(["qwee"]))
