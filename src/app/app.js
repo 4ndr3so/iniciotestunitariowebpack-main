@@ -19,13 +19,42 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    diameterOfBinaryTree(root ) {
+        let result = 0;
+        function dfs(node) {
+            if (node == null) return 0;
+            let left = dfs(node.left);
+            let right = dfs(node.right);
+            result = Math.max(result, left + right);
+            return Math.max(left, right) + 1;
+        }
+        dfs(root);
+        return result;
+    },
+    reverseStr2(s, k) {
+        let result = "";
+    
+    for (let i = 0; i < s.length; i += 2 * k) {
+        let start = i;
+        let end = Math.min(i + k, s.length); // Ensure we don't go out of bounds
+        
+        // Reverse first k characters
+        result += s.slice(start, end).split("").reverse().join("");
+        
+        // Append the next k characters unchanged
+        start = end;
+        end = Math.min(i + 2 * k, s.length);
+        result += s.slice(start, end);
+    }
+    
+    return result; 
+    },
     reverseStr(s, k) {
         let result="";
         for(let i=0;i<s.length;i+=2*k){
             result+=s.slice(i,i+k).split("").reverse().join("")+s.slice(i+k,i+2*k);
         }
         return result;
-
     },
     minDiffInBST(root) {
         let result=Infinity;
