@@ -19,7 +19,7 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
-    diameterOfBinaryTree(root ) {
+    diameterOfBinaryTree(root ) {//543. Diameter of Binary Tree
         let result = 0;
         function dfs(node) {
             if (node == null) return 0;
