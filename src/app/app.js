@@ -19,6 +19,11 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    reverseWords(s) {
+        let result = "";
+        result= s.split(" ").map(word=>word.split("").reverse().join("")).join(" ");
+        return result;
+    },
     checkRecord(s) {
         if (s.includes("LLL")) return false;
         if(s.split("A").length>2) return false;
