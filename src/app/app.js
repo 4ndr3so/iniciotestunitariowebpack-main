@@ -19,6 +19,11 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    checkRecord(s) {
+        if (s.includes("LLL")) return false;
+        if(s.split("A").length>2) return false;
+        return true;
+    },
     diameterOfBinaryTree(root ) {//543. Diameter of Binary Tree
         let result = 0;
         function dfs(node) {
