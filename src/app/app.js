@@ -19,7 +19,51 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
-    reverseWords(s) {
+    matrixReshape(mat,r, c) {
+        if(mat.length*mat[0].length!==r*c) return mat;
+        let result=[];
+        let index=0;
+        let col=0;
+
+        for(let i=0;i<r;i++){
+            result.push([]);
+        }
+        for(let i=0;i<mat.length;i++){
+            for(let j=0;j<mat[0].length;j++){
+                result[index][col]=mat[i][j];
+                col++;
+                if(col===c){
+                    index++;
+                    col=0;
+                }
+            }
+        }
+        return result;
+    },
+    findTilt(root) {
+    let result = 0;
+   function dtt(root){
+        if(root==null) return 0;
+        let left=dtt(root.left);
+        let right=dtt(root.right);
+        result+=Math.abs(left-right);
+        return left+right+root.val;
+    }
+
+    dtt(root);
+
+    return result;
+    },
+    arrayPairSum(nums) {//561. Array Partition
+    let result=0;
+    let temp=[]
+    let order=nums.sort((a,b)=>a-b);
+    for(let i=0;i<order.length;i+=2){
+        result+=order[i];
+    }
+    return result;
+    },
+    reverseWords(s) {//557. Reverse Words in a String III
         let result = "";
         result= s.split(" ").map(word=>word.split("").reverse().join("")).join(" ");
         return result;
