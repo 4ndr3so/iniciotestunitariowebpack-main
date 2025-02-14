@@ -19,6 +19,54 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    distributeCandies(candyType) {
+    let canHash= new Map();
+        for(let i=0;i<candyType.length;i++){
+            canHash.set(candyType[i],(canHash.get(candyType[i])||0)+1);
+        }
+    if(canHash.size>=candyType.length/2){
+        return candyType.length/2;
+    }else{
+        return canHash.size;
+    }
+    },
+    issubtre2(root, subRoot) {
+    let stack = [root];
+    while (stack.length) {
+        let node = stack.pop();
+        if (node.val === subRoot.val && isSameTree(node, subRoot)) {
+            return true;
+        }
+        if (node.left) stack.push(node.left);
+        if (node.right) stack.push(node.right);
+    }
+    function isSameTree(node, subNode) {
+        if (!node && !subNode) return true;
+        if (!node || !subNode) return false;
+        if (node.val !== subNode.val) return false;
+        return isSameTree(node.left, subNode.left) && isSameTree(node.right, subNode.right);
+    }
+    return false;
+
+    },
+    isSubtree(root, subRoot) {
+        let result = false;
+        function isomtree(node, subNode) {
+                if(node==null && subNode==null) return true;
+                if(node==null || subNode==null) return false;
+                if(node.val!==subNode.val) return false;
+                return isomtree(node.left,subNode.left) && isomtree(node.right,subNode.right);  
+        }
+        function dfs(node){
+            if(node==null) return false;
+            if(node.val===subRoot.val && isomtree(node,subRoot)){
+                return true;
+            }
+            return dfs(node.left) || dfs(node.right);
+        }
+        return dfs(root);
+
+    },
     matrixReshape(mat,r, c) {
         if(mat.length*mat[0].length!==r*c) return mat;
         let result=[];

@@ -86,6 +86,10 @@ let list5=new Treenode(4, new Treenode(2, new Treenode(1),new Treenode(3)),new T
 let pathash=new Treenode(4, new Treenode(8,new Treenode(2)), new Treenode(9, null ,new Treenode(3)));
 let inorderTraversal= new Treenode(1,new Treenode(2,new Treenode(4),new Treenode(5,new Treenode(6),new Treenode(7))),new Treenode(3,null,new Treenode(8,new Treenode(9))))
 
+
+let isometreTree1=new Treenode(3, new Treenode(4,new Treenode(1),new Treenode(2)), new Treenode(5))
+let isometreTree2=new Treenode(4,new Treenode(1),new Treenode(3));
+
 let tree3symetri=new Treenode(1, new Treenode(2, new Treenode(3), new Treenode(4)), new Treenode(2, new Treenode(4), new Treenode(3)))
 let list1=new ListNode(1, new ListNode(2, new ListNode(4,new ListNode(4,new ListNode(5,new ListNode(5,new ListNode(6,new ListNode(7))))))))
 let list2=new ListNode(4, new ListNode(5, new ListNode(6)))//3
@@ -125,7 +129,9 @@ let nums = [9,6,4,2,3,5,7,0,1];
 //console.log(prueba.repeatedSubstringPattern2("abcabcabcabc"))
 //console.log(prueba.convertToBase7(77))
 //console.log(prueba.findRelativeRanks2([10,3,8,9,4]))
-console.log(prueba.diameterOfBinaryTree(tree1))
+console.log(prueba.distributeCandies([1,1,2,2,3,3]))
+//console.log(prueba.isSubtree(isometreTree1,isometreTree2))
+//console.log(prueba.diameterOfBinaryTree(tree1))
 //console.log(prueba.reverseStr2("abcdefg",2))
 //console.log(prueba.findLUSlength("aba","cdc"))
 
