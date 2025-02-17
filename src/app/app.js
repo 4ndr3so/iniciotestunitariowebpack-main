@@ -19,6 +19,41 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    findLHS2(nums) {
+        let tmpSort=nums.sort((a,b)=>a-b);
+        let result=0;
+        for(let i=0;i<tmpSort.length;i++){
+            let count=1;
+            for(let j=i+1;j<tmpSort.length;j++){
+                if(tmpSort[j]-tmpSort[i]===1){
+                    count++;
+                }else if(tmpSort[j]!==tmpSort[i]){
+                    break;
+                }
+            }
+            if(count>1){
+                result=Math.max(result,count);
+            }
+        }
+        return result;
+    },
+    findLHS(nums) {
+        let result = 0;
+        let map = new Map();
+        for (let num of nums) {
+            map.set(num, (map.get(num) || 0) + 1);
+        }
+        for (let [key, value] of map) {
+            if (map.has(key + 1)) {
+                result = Math.max(result, value + map.get(key + 1));
+            }
+        }
+        return result;
+    },
+    distributeCandies2(candyType) {
+        let can= new Set(candyType);
+        return Math.min(can.size,candyType.length/2);
+    },
     distributeCandies(candyType) {
     let canHash= new Map();
         for(let i=0;i<candyType.length;i++){
