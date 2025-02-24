@@ -22,18 +22,19 @@ export const prueba = {
     findLHS2(nums) {
         let tmpSort=nums.sort((a,b)=>a-b);
         let result=0;
-        for(let i=0;i<tmpSort.length;i++){
-            let count=1;
-            for(let j=i+1;j<tmpSort.length;j++){
-                if(tmpSort[j]-tmpSort[i]===1){
-                    count++;
-                }else if(tmpSort[j]!==tmpSort[i]){
-                    break;
-                }
+        let count=1;
+        let prevCount=0;
+        for(let i=1;i<tmpSort.length;i++){
+            if(tmpSort[i]===tmpSort[i-1]){
+                count++;
+            }else if(tmpSort[i]===tmpSort[i-1]+1){
+                prevCount=count;
+                count=1;
+            }else{
+                prevCount=0;
+                count=1;
             }
-            if(count>1){
-                result=Math.max(result,count);
-            }
+            result=Math.max(result,prevCount+count);
         }
         return result;
     },
