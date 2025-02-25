@@ -19,6 +19,36 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    findRestaurant(list1, list2) {
+    let result= new Map();
+
+    for(let i=0;i<list1.length;i++){
+           if(list2.includes(list1[i])){
+               result.set(list1[i],i+list2.indexOf(list1[i]));
+           }
+        
+        }
+        let min=Infinity;
+        let arr=[];
+
+        for(let [key,value] of result){
+            if(value<min){
+                min=value;
+                arr=[key];
+            }else if(value===min){
+                arr.push(key);
+            }
+        }
+        return arr;
+
+    },
+    maxCount(m, n, ops) {
+        for (let op of ops) {
+            m = Math.min(m, op[0]);
+            n = Math.min(n, op[1]);
+        }
+        return m * n;
+    },
     findLHS2(nums) {
         let tmpSort=nums.sort((a,b)=>a-b);
         let result=0;
