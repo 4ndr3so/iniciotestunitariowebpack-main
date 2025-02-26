@@ -50,6 +50,27 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    canPlaceFlowers(flowerbed, n) {
+        let temp=n;
+        for(let i=0;i<flowerbed.length;i++){
+                if(flowerbed[i]===1){
+                    temp++;
+                }
+            }
+        if(n+(n-1)>flowerbed.length) return false;
+        for(let i=0;i<flowerbed.length;i++){
+            if(flowerbed[i]===0){
+                if((flowerbed[i-1]===0 || flowerbed[i-1]===undefined) && (flowerbed[i+1]===0 || flowerbed[i+1]===undefined)){
+                    flowerbed[i]=1;
+                    n--;
+                    if(n<=0){
+                        return true;
+                    }
+                }
+            }
+        }
+        return n<=0;
+    },
     findRestaurant(list1, list2) {
     let result= new Map();
 
