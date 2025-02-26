@@ -13,6 +13,37 @@ function TreeNode(val, left, right) {
     this.left = (left === undefined ? null : left)
     this.right = (right === undefined ? null : right)
 }
+class StringIterator {
+    constructor(compressedString) {
+        this.data = [];
+        this.i = 0; // Pointer to track position in data array
+        
+        let regex = /([a-zA-Z])(\d+)/g;
+        let match;
+        
+        while ((match = regex.exec(compressedString)) !== null) {
+            this.data.push([match[1], parseInt(match[2])]); // Store [char, count]
+        }
+    }
+
+    next() {
+        if (!this.hasNext()) return " "; // If no more characters, return space
+
+        let [char, count] = this.data[this.i];
+
+        if (count === 1) {
+            this.i++; // Move to next character set
+        } else {
+            this.data[this.i][1]--; // Reduce the count
+        }
+
+        return char;
+    }
+
+    hasNext() {
+        return this.i < this.data.length;
+    }
+}
 
 function isBadVersion(version) {
     return version >= 3;
