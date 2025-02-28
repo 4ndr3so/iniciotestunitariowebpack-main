@@ -130,7 +130,7 @@ let nums = [9,6,4,2,3,5,7,0,1];
 //console.log(prueba.convertToBase7(77))
 //console.log(prueba.findRelativeRanks2([10,3,8,9,4]))
 //console.log(prueba.findLHS([1,3,2,2,5,2,3,7]))
-console.log(prueba.canPlaceFlowers([1,0,0,0,1,0,0],2))
+console.log(prueba.canPlaceFlowers2([0,0,0,0,1,0,0],2))
 //console.log(prueba.distributeCandies([1,1,2,2,3,3]))
 //console.log(prueba.isSubtree(isometreTree1,isometreTree2))
 //console.log(prueba.diameterOfBinaryTree(tree1))

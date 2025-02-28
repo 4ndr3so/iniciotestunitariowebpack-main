@@ -50,6 +50,21 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    mergeTrees(root1, root2) {
+    
+    },
+    canPlaceFlowers2(flowerbed, n){
+        let len=flowerbed.length;
+        for(let i=0;i<len;i++){
+            let left=i===0?0:flowerbed[i-1];
+            let right=i===len-1?0:flowerbed[i+1];
+            if(left===0 && right===0 && flowerbed[i]===0){
+                flowerbed[i]=1;
+                n--;
+            }
+        }
+        return n<=0;
+    },
     canPlaceFlowers(flowerbed, n) {
         let temp=n;
         for(let i=0;i<flowerbed.length;i++){
