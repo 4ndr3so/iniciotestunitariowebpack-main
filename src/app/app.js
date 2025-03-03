@@ -50,8 +50,26 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    
+    maximumProduct(nums) {
+        let sortNum=nums.sort((a,b)=>a-b);
+        let len=nums.length;
+        let result1=sortNum[len-1]*sortNum[len-2]*sortNum[len-3];
+        let result2=sortNum[0]*sortNum[1]*sortNum[len-1];
+        return Math.max(result1,result2);
+        
+    },
     mergeTrees(root1, root2) {
     
+        function tbt(root1, root2){
+            if(root1==null) return root2;
+            if(root2==null) return root1;
+            root1.val+=root2.val;
+            root1.left=tbt(root1.left,root2.left);
+            root1.right=tbt(root1.right,root2.right);
+            return root1;
+        }
+        return tbt(root1,root2);
     },
     canPlaceFlowers2(flowerbed, n){
         let len=flowerbed.length;
