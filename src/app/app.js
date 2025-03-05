@@ -50,6 +50,69 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+     averageOfLevels2(root) {
+        if (!root) return [];
+    
+        const result = [];
+        const queue = [root]; // Initialize the queue with the root node
+    
+        while (queue.length > 0) {
+            let levelSum = 0; // Sum of nodes at the current level
+            const levelCount = queue.length; // Number of nodes at the current level
+    
+            for (let i = 0; i < levelCount; i++) {
+                const node = queue.shift(); // Dequeue the front node
+                levelSum += node.val; // Add the value of the current node
+    
+                // Add the children of the current node to the queue
+                if (node.left) queue.push(node.left);
+                if (node.right) queue.push(node.right);
+            }
+    
+            // Calculate the average for the current level
+            result.push(levelSum / levelCount);
+        }
+    
+        return result;
+    },
+    averageOfLevels(root) {
+        const levelSums = [];  // Stores the sum of nodes at each level
+        const levelCounts = []; // Stores the count of nodes at each level
+    
+        // Helper function to perform DFS
+        function dfs(node, level) {
+            if (!node) return;
+    
+            // If this is the first time visiting this level, initialize it
+            if (levelSums.length <= level) {
+                levelSums[level] = 0;
+                levelCounts[level] = 0;
+            }
+    
+            // Add the current node's value to the sum for this level
+            levelSums[level] += node.val;
+            levelCounts[level] += 1;
+    
+            // Recurse on the left and right children
+            dfs(node.left, level + 1);
+            dfs(node.right, level + 1);
+        }
+    
+        // Start DFS from the root at level 0
+        dfs(root, 0);
+    
+        // Calculate the averages for each level
+        const averages = levelSums.map((sum, i) => sum / levelCounts[i]);
+        return averages;
+    },
+    smallestPositiveinteger(arr){
+        let set = new Set(arr);
+        let i = 1;
+        while (set.has(i)) {
+            i++;
+        }
+        return i;
+    },
     maximumProduct2(nums) {
         let max1 = -Infinity, max2 = -Infinity, max3 = -Infinity;
       let min1 = Infinity, min2 = Infinity;
