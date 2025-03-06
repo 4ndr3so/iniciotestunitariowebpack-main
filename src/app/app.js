@@ -50,6 +50,33 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    findMaxAverage(nums, k) {
+        let max = -Infinity;
+        let sum = 0;
+        for (let i = 0; i < k; i++) {
+            sum += nums[i];
+        }
+        max = Math.max(max, sum);
+        for (let i = k; i < nums.length; i++) {
+            sum += nums[i] - nums[i - k];
+            max = Math.max(max, sum);
+        }
+        return max / k;
+    },
+    findMaxAverage(nums, k) {
+        let result=0;
+            for(let i=0;i<nums.length;i++){
+                let temp=0;
+                for(let j=i;j<i+k;j++){
+                    temp+=nums[j];
+                }
+                result=Math.max(result,temp);
+                if(i+k===nums.length){
+                    break;
+                }
+            }
+            return result/k;
+    },
      averageOfLevels2(root) {
         if (!root) return [];
     
