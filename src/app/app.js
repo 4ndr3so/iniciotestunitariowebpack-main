@@ -50,6 +50,19 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    findErrorNums(nums){
+        let set=new Set(nums);
+        let sum=0;
+        let duplicate=0;
+        let n=nums.length;
+        for(let i=0;i<n;i++){
+            sum+=nums[i];
+        }
+        let duplicateSum=Array.from(set).reduce((acc,val)=>acc+val,0);
+        duplicate=sum-duplicateSum;
+        let missing=(n*(n+1)/2)-duplicateSum;
+        return [duplicate,missing];
+    },
     findMaxAverage(nums, k) {
         let max = -Infinity;
         let sum = 0;
