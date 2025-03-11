@@ -50,6 +50,33 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    judgeCircle(moves) {
+       let stack=[];
+         for(let i=0;i<moves.length;i++){
+              if(moves[i]==="U"){
+                stack.push(1);
+              }else if(moves[i]==="D"){
+                stack.pop();
+              }else if(moves[i]==="L"){
+                stack.push(2);
+              }else if(moves[i]==="R"){
+                stack.pop();
+              }
+         }
+            return stack.length===0;
+    },
+
+    judgeCircle(moves) {
+        let x = 0, y = 0;
+        for (let move of moves) {
+            if (move === 'U') y++;
+            else if (move === 'D') y--;
+            else if (move === 'L') x--;
+            else if (move === 'R') x++;
+        }
+        return x === 0 && y === 0;
+     
+    },
     findTarget(root, k) {
         let set = new Set();
         function dfs(node) {
