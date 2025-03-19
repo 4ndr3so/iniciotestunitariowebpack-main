@@ -50,6 +50,77 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    validPalindrome(s) {
+        function isPalindrome(str, left, right) {
+            while (left < right) {
+                if (str[left] !== str[right]) return false;
+                left++;
+                right--;
+            }
+            return true;
+        }
+    
+        let left = 0;
+        let right = s.length - 1;
+    
+        while (left < right) {
+            if (s[left] !== s[right]) {
+                // Try skipping either left or right character and check if it's a palindrome
+                return isPalindrome(s, left + 1, right) || isPalindrome(s, left, right - 1);
+            }
+            left++;
+            right--;
+        }
+    
+        return true;
+    },
+    findLengthOfLCIS(nums) {
+        let result=0;
+        let count=1;
+        for(let i=0;i<nums.length;i++){
+            if(nums[i]<nums[i+1]){
+                count++;
+            }else{
+                result=Math.max(result,count);
+                count=1;
+            }
+        }
+        return result;
+    },
+    findSecondMinimumValue(root) {
+        if (!root) return -1;
+    
+    let minVal = root.val;
+    let secondMin = Infinity;
+    
+        function dfs(root) {
+            if (!node) return;
+
+            if (minVal < node.val && node.val < secondMin) {
+                secondMin = node.val;
+            }
+            
+            dfs(node.left);
+            dfs(node.right);
+        }
+
+    dfs(root);
+    return secondMin === Infinity ? -1 : secondMin
+    },
+     findSecondMinimumValue(root) {
+        let result= new Set();
+        function bfs(root){
+            if(root==null) return;
+            bfs(root.left);
+            bfs(root.right);
+            result.add(root.val);
+        }
+        bfs(root);
+
+        let arr=Array.from(result);
+        arr.sort((a,b)=>a-b);
+        return arr[1]||-1;
+    },
     imageSmoother(img) {
         const m = img.length;
         const n = img[0].length;
