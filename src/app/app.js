@@ -50,6 +50,24 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    calPoints(operations) {
+        let result = [];
+
+        for (let i = 0; i < operations.length; i++) {
+            if(operations[i] === "C") {
+                result.pop();
+            }else if(operations[i] === "D") {
+                result.push(result[result.length - 1] * 2)
+            }else if(operations[i] === "+") {
+                result.push(result[result.length - 1] + result[result.length - 2])
+            }
+            else {
+                result.push(parseInt(operations[i]))
+            }
+
+        }
+        return result.reduce((acc, val) => acc + val, 0);
+    },
     validPalindrome(s) {
         function isPalindrome(str, left, right) {
             while (left < right) {
