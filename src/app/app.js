@@ -50,6 +50,31 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    countBinarySubstrings(s) {
+   
+    let result=0;
+    let prev=0;
+    let curr=1;
+    for(let i=1;i<s.length;i++){
+        if(s[i]===s[i-1]){
+            curr++;
+        }else{
+            result+=Math.min(prev,curr);
+            prev=curr;
+            curr=1;
+        }
+    }
+    return result+Math.min(prev,curr);
+    },
+    hasAlternatingBits(n ) {
+    let btyte=n.toString(2);
+    for(let i=0;i<btyte.length-1;i++){
+        if(btyte[i]===btyte[i+1]){
+            return false;
+        }
+    }
+    return true;
+    },
     calPoints(operations) {
         let result = [];
 
