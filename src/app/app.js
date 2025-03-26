@@ -50,6 +50,41 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    findShortestSubArray(nums) {
+        let count = {};      // Stores frequency of each number
+        let firstIndex = {}; // Stores first occurrence index of each number
+        let lastIndex = {};  // Stores last occurrence index of each number
+        let degree = 0;      // Stores the maximum frequency found
+    
+        // Step 1: Populate the data structures
+        for (let i = 0; i < nums.length; i++) {
+            let num = nums[i];
+    
+            // Update count (frequency of num)
+            count[num] = (count[num] || 0) + 1;
+    
+            // Store first occurrence if not already stored
+            if (firstIndex[num] === undefined) firstIndex[num] = i;
+    
+            // Always update last occurrence
+            lastIndex[num] = i;
+    
+            // Update the degree of the array
+            degree = Math.max(degree, count[num]);
+        }
+    
+        // Step 2: Find the smallest subarray for the most frequent numbers
+        let minLength = nums.length;
+    
+        for (let num in count) {
+            if (count[num] === degree) {
+                let length = lastIndex[num] - firstIndex[num] + 1;
+                minLength = Math.min(minLength, length);
+            }
+        }
+    
+        return minLength;
+    },
     countBinarySubstrings(s) {
    
     let result=0;
