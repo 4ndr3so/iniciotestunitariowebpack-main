@@ -50,6 +50,9 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    isOneBitCharacter(bits) {
+    
+},
     findShortestSubArray(nums) {
         let count = {};      // Stores frequency of each number
         let firstIndex = {}; // Stores first occurrence index of each number
