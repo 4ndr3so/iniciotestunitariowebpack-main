@@ -51,7 +51,15 @@ function isBadVersion(version) {
 
 export const prueba = {
     isOneBitCharacter(bits) {
-    
+    while(bits.length > 1) {
+        if (bits[0] === 1) {
+            bits.shift();
+            bits.shift();
+        } else {
+            bits.shift();
+        }
+    }
+    return bits[0] === 0;
 },
     findShortestSubArray(nums) {
         let count = {};      // Stores frequency of each number
