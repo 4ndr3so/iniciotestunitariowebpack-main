@@ -50,6 +50,38 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    pivotIndex(nums) {
+        let leftSum = 0;
+        let rightSum = nums.reduce((acc, val) => acc + val, 0);
+        for (let i = 0; i < nums.length; i++) {
+            rightSum -= nums[i];
+            if (leftSum === rightSum) {
+                return i;
+            }
+            leftSum += nums[i];
+        }
+        return -1;
+    },
+    pivotIndex2(nums) {
+        let leftSum = 0;
+        for(let i = 0; i < nums.length; i++) {
+            leftSum+= nums[i];
+                if(i+2<nums.length){
+                    let rightSum = 0;
+                    for(let j = i+2; j < nums.length; j++) {
+                        rightSum+= nums[j];
+                        
+                    }
+                    if(rightSum === 0) {
+                        return 0;
+                    }
+                    if(leftSum === rightSum) {
+                        return i+1;
+                    }
+                }
+        }
+        return -1;
+    },
     isOneBitCharacter(bits) {
     while(bits.length > 1) {
         if (bits[0] === 1) {
