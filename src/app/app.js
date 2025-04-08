@@ -50,6 +50,26 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    selfDividingNumbers(left, right) {
+        let result = [];
+        for (let i = left; i <= right; i++) {
+            let num = i;S
+            let isSelfDividing = true;
+            while (num > 0) {
+                let digit = num % 10;
+                if (digit === 0 || i % digit !== 0) {
+                    isSelfDividing = false;
+                    break;
+                }
+                num = Math.floor(num / 10);
+            }
+            if (isSelfDividing) {
+                result.push(i);
+            }
+        }
+        return result;
+    
+    },
     pivotIndex(nums) {
         let leftSum = 0;
         let rightSum = nums.reduce((acc, val) => acc + val, 0);
