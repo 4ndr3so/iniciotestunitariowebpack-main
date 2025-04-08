@@ -50,6 +50,32 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    areSentencesSimilar(sentence1, sentence2, similarPairs) {
+        if (sentence1.length !== sentence2.length) return false;
+      
+        const similarMap = new Map();
+      
+        // Build a map where each word points to a set of its similar words
+        for (const [w1, w2] of similarPairs) {
+          if (!similarMap.has(w1)) similarMap.set(w1, new Set());
+          if (!similarMap.has(w2)) similarMap.set(w2, new Set());
+          similarMap.get(w1).add(w2);
+          similarMap.get(w2).add(w1);
+        }
+      
+        for (let i = 0; i < sentence1.length; i++) {
+          const word1 = sentence1[i];
+          const word2 = sentence2[i];
+          if (word1 !== word2) {
+            const similarSet = similarMap.get(word1);
+            if (!similarSet || !similarSet.has(word2)) {
+              return false;
+            }
+          }
+        }
+      
+        return true;
+      },
     selfDividingNumbers(left, right) {
         let result = [];
         for (let i = left; i <= right; i++) {
