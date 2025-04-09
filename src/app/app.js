@@ -50,6 +50,114 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    floodFill2(image, sr, sc, color) {
+        const originalColor = image[sr][sc];
+        if (originalColor === color) return image; // No change needed
+    
+        const rows = image.length;
+        const cols = image[0].length;
+    
+        const dfs = (r, c) => {
+            if (r < 0 || r >= rows || c < 0 || c >= cols) return;
+            if (image[r][c] !== originalColor) return;
+    
+            image[r][c] = color;
+    
+            dfs(r + 1, c);
+            dfs(r - 1, c);
+            dfs(r, c + 1);
+            dfs(r, c - 1);
+        };
+    
+        dfs(sr, sc);
+        return image;
+    },
+    floodFill3(image, sr, sc, color) {
+        const originalColor = image[sr][sc];
+    if (originalColor === color) return image; // Avoid infinite loop
+
+    const rows = image.length;
+    const cols = image[0].length;
+    const queue = [[sr, sc]];
+
+    while (queue.length > 0) {
+        const [r, c] = queue.shift();
+
+        if (image[r][c] === originalColor) {
+            image[r][c] = color;
+
+            // Add neighbors (up, down, left, right)
+            if (r > 0) queue.push([r - 1, c]);     // up
+            if (r < rows - 1) queue.push([r + 1, c]); // down
+            if (c > 0) queue.push([r, c - 1]);     // left
+            if (c < cols - 1) queue.push([r, c + 1]); // right
+        }
+    }
+
+    return image;
+    },
+    floodFill(image, sr, sc, color){
+     let color1=image[sr][sc];
+     let image2=image.map((row) => row.slice());
+     //left-top
+     for(let i=sr;i>=0;i--){
+        for(let j=sc;j>=0;j--){
+            if(image[i][j]===color1){
+                image2[i][j]=color;
+                if(i>=1 && image[i-1][j]===color1){
+                    image2[i-1][j]=color;
+                }
+                if(j>=1 && image[i][j-1]===color1){
+                    image2[i][j-1]=color;
+                }
+            }
+        }
+     }
+      //left-bottom
+      for(let i=sr;i<image.length;i++){
+        for(let j=sc;j>=0;j--){
+            if(image[i][j]===color1){
+                image2[i][j]=color;
+                if(i<image.length-1 && image[i+1][j]===color1){
+                    image2[i+1][j]=color;
+                }
+                if(j>=1 && image[i][j-1]===color1){
+                    image2[i][j-1]=color;
+                }
+            }
+        }
+     }
+     //right-top
+     for(let i=sr;i>=0;i--){
+        for(let j=sc;j<image.length;j++){
+            if(image[i][j]===color1){
+                image2[i][j]=color;
+                if(j<image.length-1 && image[i+1][j]===color1){
+                    image2[i+1][j]=color;
+                }
+                if(i>=1 && image[i][j-1]===color1){
+                    image2[i][j-1]=color;
+                }
+            }
+        }
+     }
+      //right-bottom
+      for(let i=sr;i<image.length;i++){
+        for(let j=sc;j<image.length;j++){
+            if(image[i][j]===color1){
+                image2[i][j]=color;
+                if(i<image[0].length-1 && image[i+1][j]===color1){
+                    image2[i+1][j]=color;
+                }
+                if(j<image.length-1 && image[i][j+1]===color1){
+                    image2[i][j+1]=color;
+                }
+            }
+        }
+     }
+     
+     return image2
+    },
     areSentencesSimilar(sentence1, sentence2, similarPairs) {
         if (sentence1.length !== sentence2.length) return false;
       
