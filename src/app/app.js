@@ -50,6 +50,13 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    fib(n) {
+        let memo = new Map();
+        if(n<=1)   return n;
+        if(memo.has(n)) return memo.get(n);
+        memo.set(n, this.fib(n-1)+this.fib(n-2));
+        return memo.get(n);
+    },
     minCostClimbingStairs(cost) {
         let n = cost.length;
         let dp = new Array(n + 1).fill(0);
