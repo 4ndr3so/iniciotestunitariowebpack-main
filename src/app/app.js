@@ -50,6 +50,12 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    divisorGame(n) {
+        /*
+        The Divisor Game (LeetCode 1025) leverages a neat mathematical observation regarding the parity of the starting number. With optimal play, Alice can force a win if the starting number is even, while Bob wins if the starting number is odd. This allows the problem to be solved in constant time by simply checking whether n is even. The provided JavaScript solution directly reflects this insight with an easy-to-understand implementation.
+        */
+     return n % 2 === 0;
+    },
     fib(n) {
         let memo = new Map();
         if(n<=1)   return n;
