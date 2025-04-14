@@ -50,9 +50,36 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    tribonacci2(n) {
+        let previous1 = 0;
+        let previous2 = 1;
+        let current = 1;
+        for (let i = 3; i <= n; i++) {
+            let next = previous1 + previous2 + current;
+            previous1 = previous2;
+            previous2 = current;
+            current = next;
+        }
+        return current;
+    },
+    tribonacci(n) {
+    let memo = new Map();
+    if(n<1) return 0;
+    if(n===1 || n===2) return 1;
+    if(memo.has(n)) return memo.get(n);
+    memo.set(n, this.tribonacci(n-1)+this.tribonacci(n-2)+this.tribonacci(n-3));
+    return memo.get(n);
+
+    },
     divisorGame(n) {
         /*
-        The Divisor Game (LeetCode 1025) leverages a neat mathematical observation regarding the parity of the starting number. With optimal play, Alice can force a win if the starting number is even, while Bob wins if the starting number is odd. This allows the problem to be solved in constant time by simply checking whether n is even. The provided JavaScript solution directly reflects this insight with an easy-to-understand implementation.
+        The Divisor Game (LeetCode 1025) leverages a neat mathematical 
+        observation regarding the parity of the starting number. 
+        With optimal play, Alice can force a win if the starting
+         number is even, while Bob wins if the starting number is odd.
+          This allows the problem to be solved in constant time by simply
+           checking whether n is even. The provided JavaScript solution 
+           directly reflects this insight with an easy-to-understand implementation.
         */
      return n % 2 === 0;
     },
