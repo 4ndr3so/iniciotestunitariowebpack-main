@@ -50,6 +50,80 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    countNumbersWithUniqueDigits(a, b) {
+        
+        function countUnique(n) {
+          const s = String(n);
+          const len = s.length;
+          const memo = new Map();
+      
+          function dfs(pos, mask, isLimit, isNum) {
+            if (pos === len) return isNum ? 1 : 0;
+            const key = `${pos},${mask},${isLimit},${isNum}`;
+            if (memo.has(key)) return memo.get(key);
+            let res = 0;
+            if (!isNum) {
+              res += dfs(pos + 1, mask, false, false);
+            }
+            const low = isNum ? 0 : 1;
+            const high = isLimit ? Number(s[pos]) : 9;
+            for (let d = low; d <= high; d++) {
+              if ((mask >> d) & 1) continue;
+              res += dfs(
+                pos + 1,
+                mask | (1 << d),
+                isLimit && d === high,
+                true
+              );
+            }
+            memo.set(key, res);
+            return res;
+          }
+      
+          return dfs(0, 0, true, false);
+        }
+      
+        return countUnique(b) - countUnique(a - 1);
+      },
+      
+    getLongestSubsequence(words, groups) {
+    let result = [];
+    let index = 0;
+    result.push(words[index]);
+    for (let i = 1; i < words.length; i++) {
+        if(groups[index] !== groups[i]) {
+            index=i;
+            result.push(words[index]);
+            
+        }
+    }
+    return result;
+    },
+    maxRepeating2(sequence, word) {
+        const n = sequence.length;
+        const m = word.length;
+        const dp = new Array(n + 1).fill(0);
+        let maxRepeat = 0;
+        for (let i = m; i <= n; i++) {
+            if (sequence.substring(i - m, i) === word) {
+                dp[i] = dp[i - m] + 1;
+                maxRepeat = Math.max(maxRepeat, dp[i]);
+            }
+        }
+    
+        return maxRepeat;
+    },
+    maxRepeating(sequence, word)  {
+        let count = 0;
+        let pattern = word;
+        
+        while (sequence.includes(pattern)) {
+            count++;
+            pattern += word;
+        }
+        
+        return count;
+    },
     tribonacci2(n) {
         let previous1 = 0;
         let previous2 = 1;
