@@ -50,6 +50,30 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    longestPalindrome2(s) {
+       //should return the longest palindromic substring in s
+        let result = 0;
+        let left = 0;
+        let right = 0;
+        function expandAroundCenter(s, left, right) {
+            while (left >= 0 && right < s.length && s[left] === s[right]) {
+                left--;
+                right++;
+            }
+            return right - left - 1; // Length of the palindrome
+        }
+        for (let i = 0; i < s.length; i++) {
+            let len1 = expandAroundCenter(s, i, i); // Odd length palindrome
+            let len2 = expandAroundCenter(s, i, i + 1); // Even length palindrome
+            let len = Math.max(len1, len2);
+            if (len > result) {
+                result = len;
+                left = i - Math.floor((len - 1) / 2);
+                right = i + Math.floor(len / 2);
+            }
+        }
+        return s.substring(left, right + 1);
+    },
     countNumbersWithUniqueDigits(a, b) {
         
         function countUnique(n) {
@@ -79,10 +103,8 @@ export const prueba = {
             memo.set(key, res);
             return res;
           }
-      
           return dfs(0, 0, true, false);
         }
-      
         return countUnique(b) - countUnique(a - 1);
       },
       
@@ -90,13 +112,12 @@ export const prueba = {
     let result = [];
     let index = 0;
     result.push(words[index]);
-    for (let i = 1; i < words.length; i++) {
-        if(groups[index] !== groups[i]) {
-            index=i;
-            result.push(words[index]);
-            
+        for (let i = 1; i < words.length; i++) {
+            if(groups[index] !== groups[i]) {
+                index=i;
+                result.push(words[index]);    
+            }
         }
-    }
     return result;
     },
     maxRepeating2(sequence, word) {
