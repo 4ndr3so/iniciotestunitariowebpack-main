@@ -50,6 +50,13 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    buildArray(nums) {
+        let result = new Array(nums.length).fill(0);
+        for (let i = 0; i < nums.length; i++) {
+            result[i] = nums[nums[i]];
+        }
+        return result;
+    },
     longestPalindrome2(s) {
        //should return the longest palindromic substring in s
         let result = 0;
