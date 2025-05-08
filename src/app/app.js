@@ -50,6 +50,18 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    numEquivDominoPairs(dominoes) {
+        let result = 0;
+        let map = new Map();
+        for (let i = 0; i < dominoes.length; i++) {
+            let key = dominoes[i].sort((a, b) => a - b).join(",");
+            map.set(key, (map.get(key) || 0) + 1);
+        }
+        for (let value of map.values()) {
+            result += (value * (value - 1)) / 2;
+        }
+        return result;
+    },
     buildArray(nums) {
         let result = new Array(nums.length).fill(0);
         for (let i = 0; i < nums.length; i++) {
