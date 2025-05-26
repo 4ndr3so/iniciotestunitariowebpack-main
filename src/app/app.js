@@ -50,6 +50,21 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    insertionSort2(nums) {
+        //iterate through the array
+        for (let i = 0; i < nums.length; i++) {
+            //create the marker
+            let marker = i - 1;
+            //iterate through the array and check if the current element is smaller than the previous one
+            while (marker >= 0 && nums[marker] > nums[marker + 1]) {
+                // Swap the elements
+                [nums[marker], nums[marker + 1]] = [nums[marker + 1], nums[marker]];
+                // Move the marker to the left
+                marker--;
+            }
+        }
+        return nums;
+    },
 
  countSubarrays(nums) {
      let count = 0;
@@ -3309,12 +3324,18 @@ set bits
         }
         return arr;
     },
-    bubleSort(arr) {    //n^2
+    bubbleSort(arr) {    //n^2
+        //iterate over the array
         for (let i = 0; i < arr.length; i++) {
+            //compare the current element with the next one
             for (let j = 0; j < arr.length - i; j++) {
+                //if the current element is greater than the next one
                 if (arr[j] > arr[j + 1]) {//change the order
+                    //swap the elements
                     let temp = arr[j];
+                    //swap
                     arr[j] = arr[j + 1];
+                    //swap
                     arr[j + 1] = temp;
                 }
             }
