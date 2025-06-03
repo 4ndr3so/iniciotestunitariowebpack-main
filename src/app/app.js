@@ -50,6 +50,29 @@ function isBadVersion(version) {
 }
 
 export const prueba = {
+    generateParenthesis(n) {
+        const result = [];
+        function backTrack(current, open, close) {
+            // Base case: if the current string has reached the maximum length
+            if(current.length === n * 2) {
+                // If the current string is valid, add it to the result
+                result.push(current);
+                // Return to explore other combinations
+                return;
+            }
+            if (open < n) {
+                // If we can still add an open parenthesis, do so
+                backTrack(current + '(', open + 1, close);
+            }
+            if (close < open) {
+                // If we can add a close parenthesis, do so
+                backTrack(current + ')', open, close + 1);
+            }
+        }
+        backTrack('', 0, 0); // Start with an empty string and no parentheses
+        return result;
+
+    },
     countPairs(nums, k) {
         let count = 0;
             for (let i = 0; i < nums.length - 1; i++) {
